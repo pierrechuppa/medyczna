@@ -3,234 +3,200 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MedScrubs - Sklep i Kursy</title>
+  <title>LuminaMed • Polska Odzież Medyczna Premium</title>
   <style>
     :root {
-      --primary: #0d6efd;
+      --primary: #0a3d62;
+      --accent: #00b894;
+      --light: #f8f9fa;
     }
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f8f9fa;
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin:0; background: var(--light); color:#333; line-height:1.6; }
+    header { background: var(--primary); color:white; position:sticky; top:0; z-index:100; }
+    nav { max-width:1300px; margin:auto; padding:15px 20px; display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-size:2rem; font-weight:bold; }
+    .nav-links a { color:white; margin:0 15px; text-decoration:none; font-weight:500; }
+    .hero { 
+      background: linear-gradient(rgba(10,61,98,0.8), rgba(10,61,98,0.8)), url('https://images.unsplash.com/photo-1559757148-5e995136c87b?auto=format&fit=crop&q=80') center/cover;
+      color:white; text-align:center; padding:140px 20px;
     }
-    header {
-      background: var(--primary);
-      color: white;
-      padding: 15px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 10px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 0 15px;
-    }
-    .section {
-      margin-bottom: 50px;
-    }
-    h2 {
-      color: var(--primary);
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-    }
-    .card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-    .card-body {
-      padding: 15px;
-    }
-    .price {
-      font-size: 1.3em;
-      font-weight: bold;
-      color: #28a745;
-    }
-    button {
-      padding: 10px 15px;
-      background: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    button:hover {
-      background: #0b5ed7;
-    }
-    .admin-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #dc3545;
-      padding: 15px 20px;
-      border-radius: 50px;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.7);
-      z-index: 200;
-    }
-    .modal-content {
-      background: white;
-      margin: 5% auto;
-      padding: 25px;
-      width: 90%;
-      max-width: 600px;
-      border-radius: 10px;
-    }
-    .close {
-      float: right;
-      font-size: 28px;
-      cursor: pointer;
-    }
-    input, textarea, select {
-      width: 100%;
-      padding: 10px;
-      margin: 8px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    #cart-count {
-      background: red;
-      color: white;
-      border-radius: 50%;
-      padding: 2px 8px;
-      font-size: 0.8em;
-      vertical-align: top;
-    }
+    .hero h1 { font-size:3.5rem; margin:0; }
+    .section { max-width:1300px; margin:80px auto; padding:0 20px; }
+    h2 { text-align:center; color:var(--primary); font-size:2.4rem; margin-bottom:50px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(320px,1fr)); gap:30px; }
+    .card { background:white; border-radius:15px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,0.1); transition:0.4s; }
+    .card:hover { transform:translateY(-12px); }
+    .card img { width:100%; height:280px; object-fit:cover; }
+    .card-body { padding:22px; }
+    .price { font-size:1.5rem; color:var(--accent); font-weight:bold; }
+    button { background:var(--accent); color:white; border:none; padding:12px 24px; border-radius:8px; cursor:pointer; font-weight:600; }
+    button:hover { background:#00997a; }
+    .admin-btn { position:fixed; bottom:30px; right:30px; background:#e74c3c; color:white; padding:16px 24px; border-radius:50px; font-size:1.1rem; z-index:999; }
+    .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; overflow-y:auto; }
+    .modal-content { background:white; margin:40px auto; padding:35px; max-width:800px; border-radius:15px; }
+    .close { float:right; font-size:36px; cursor:pointer; }
+    footer { background:var(--primary); color:white; text-align:center; padding:60px 20px; }
+    .faq-item { margin:20px 0; }
+    .faq-question { font-weight:bold; cursor:pointer; background:#eef; padding:15px; border-radius:8px; }
+    .faq-answer { display:none; padding:15px 20px; background:white; border:1px solid #ddd; border-top:none; border-radius:0 0 8px 8px; }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>MedScrubs Store</h1>
   <nav>
-    <a href="#shop">Sklep</a>
-    <a href="#courses">Kursy</a>
-    <a href="#" onclick="showCart()">Koszyk (<span id="cart-count">0</span>)</a>
+    <div class="logo">LuminaMed</div>
+    <div class="nav-links">
+      <a href="#home">Strona główna</a>
+      <a href="#shop">Sklep</a>
+      <a href="#courses">Kursy</a>
+      <a href="#about">O nas</a>
+      <a href="#faq">FAQ</a>
+      <a href="#regulamin">Regulamin</a>
+      <a href="#" onclick="showCart()">Koszyk (<span id="cart-count">0</span>)</a>
+    </div>
   </nav>
 </header>
 
-<div class="container">
+<!-- HERO -->
+<section id="home" class="hero">
+  <h1>LuminaMed</h1>
+  <p style="font-size:1.6rem; max-width:800px; margin:20px auto;">Polska marka premium odzieży medycznej.<br>Komfort na długie dyżury • Nowoczesny styl • Najwyższa jakość</p>
+  <a href="#shop"><button style="font-size:1.3rem; padding:18px 40px;">Przejdź do sklepu</button></a>
+</section>
 
-  <!-- SEKcja SKLEP -->
-  <div id="shop" class="section">
-    <h2>Medyczne Scrubsy</h2>
-    <div id="products-grid" class="grid"></div>
+<!-- O NAS -->
+<section id="about" class="section">
+  <h2>O LuminaMed</h2>
+  <div style="max-width:900px; margin:auto; text-align:center; font-size:1.15rem;">
+    <p>LuminaMed powstała w 2023 roku w Polsce z myślą o lekarzach, pielęgniarkach i całym personelu medycznym, którzy zasługują na odzież nie tylko funkcjonalną, ale też elegancką i wygodną.</p>
+    <p>Szyjemy wszystko w Polsce z certyfikowanych, oddychających tkanin (wiskoza z elastanem i poliester techniczny). Dbamy o każdy detal – od wytrzymałych szwów po przemyślane kieszenie.</p>
+    <p><strong>Nasza misja:</strong> sprawić, żebyś czuł się pewnie i komfortowo przez cały dyżur.</p>
   </div>
+</section>
 
-  <!-- SEKcja KURSY -->
-  <div id="courses" class="section">
-    <h2>Kursy i Szkolenia</h2>
-    <div id="courses-grid" class="grid"></div>
+<!-- SKLEP -->
+<section id="shop" class="section">
+  <h2>Sklep — Scrubsy Premium</h2>
+  <div id="products-grid" class="grid"></div>
+</section>
+
+<!-- KURSY -->
+<section id="courses" class="section">
+  <h2>Kursy i szkolenia</h2>
+  <div id="courses-grid" class="grid"></div>
+</section>
+
+<!-- OPINIE -->
+<section class="section" style="background:#f1f7f9; padding:80px 20px;">
+  <h2>Co mówią o nas nasi klienci</h2>
+  <div class="grid">
+    <div class="card"><div class="card-body">"Najwygodniejsze scrubsy jakie kiedykolwiek nosiłam. Po 12-godzinnym dyżurze nadal czuję się świeżo!"<br><strong>— dr Anna Kowalska, anestezjolog</strong></div></div>
+    <div class="card"><div class="card-body">"Jakość materiału rewelacyjna, kolory nie blakną po praniu. Polecam każdemu!"<br><strong>— piel. Ola Nowak, OIOM</strong></div></div>
   </div>
+</section>
 
-</div>
+<!-- FAQ -->
+<section id="faq" class="section">
+  <h2>Często zadawane pytania (FAQ)</h2>
+  <div style="max-width:900px; margin:auto;">
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">Jakie rozmiary są dostępne?</div>
+      <div class="faq-answer">Oferujemy rozmiary XS, S, M, L, XL, XXL. Szczegółowa tabela rozmiarów znajduje się przy każdym produkcie.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">Z jakiej tkaniny są uszyte scrubsy?</div>
+      <div class="faq-answer">Używamy wysokiej jakości mieszanki: 55% wiskoza, 40% poliester, 5% elastan – tkanina jest oddychająca, rozciągliwa i łatwa w praniu.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">Ile czasu trwa dostawa?</div>
+      <div class="faq-answer">Wysyłka w ciągu 1-2 dni roboczych. Kurier InPost lub DPD – dostawa zwykle w 1 dzień na terenie Polski.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block'">Czy mogę zwrócić towar?</div>
+      <div class="faq-answer">Tak. Masz 14 dni na odstąpienie od umowy bez podawania przyczyny (zgodnie z prawem konsumenckim).</div>
+    </div>
+  </div>
+</section>
 
-<!-- Przycisk Admin -->
-<button class="admin-btn" onclick="showAdmin()">Panel Administratora</button>
+<!-- REGULAMIN -->
+<section id="regulamin" class="section" style="background:white; border-top:1px solid #ddd;">
+  <h2>Regulamin sklepu</h2>
+  <div style="max-width:900px; margin:auto; font-size:0.95rem; background:#fff; padding:30px; border:1px solid #eee; border-radius:10px;">
+    <p><strong>§1 Postanowienia ogólne</strong><br>
+    Niniejszy regulamin określa zasady korzystania ze sklepu internetowego LuminaMed działającego pod adresem pierrechuppa.github.io/medyczna (lub Twoja nazwa).</p>
+    <p><strong>§2 Zamówienia</strong><br>
+    Zamówienia można składać 24h/dobę. Umowa sprzedaży zostaje zawarta w momencie potwierdzenia zamówienia przez Sprzedawcę.</p>
+    <p><strong>§3 Płatności i dostawa</strong><br>
+    Akceptujemy płatności online (Przelewy24, Blik, karta) oraz przelew tradycyjny. Dostawa realizowana jest za pośrednictwem InPost i DPD.</p>
+    <p><strong>§4 Prawo odstąpienia</strong><br>
+    Konsument ma prawo odstąpić od umowy w ciągu 14 dni bez podawania przyczyny.</p>
+    <p><strong>§5 Reklamacje</strong><br>
+    Reklamacje rozpatrywane są w ciągu 14 dni na podstawie ustawy o prawach konsumenta.</p>
+    <p><em>Pełny regulamin jest dostępny na żądanie. Powyższy tekst ma charakter informacyjny i przykładowy.</em></p>
+  </div>
+</section>
+
+<button class="admin-btn" onclick="showAdmin()">Panel Admina</button>
 
 <!-- Modal Admin -->
 <div id="admin-modal" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2>Panel Administratora</h2>
+    <span class="close" onclick="closeModal()">×</span>
+    <h2>Panel Administratora LuminaMed</h2>
     
-    <h3>Dodaj nowy Scrubs</h3>
-    <input type="text" id="prod-name" placeholder="Nazwa (np. Scrubs Niebieskie)">
+    <h3>Dodaj Scrubs</h3>
+    <input type="text" id="prod-name" placeholder="Nazwa scrubsów">
     <input type="number" id="prod-price" placeholder="Cena (zł)" step="0.01">
-    <input type="text" id="prod-img" placeholder="Link do zdjęcia (URL)">
+    <input type="text" id="prod-img" placeholder="Link do zdjęcia">
     <textarea id="prod-desc" placeholder="Opis" rows="3"></textarea>
-    <button onclick="addProduct()">Dodaj Scrubs do sklepu</button>
+    <button onclick="addProduct()">Dodaj produkt</button>
 
     <hr>
-
-    <h3>Dodaj nowy Kurs</h3>
+    <h3>Dodaj Kurs</h3>
     <input type="text" id="course-name" placeholder="Nazwa kursu">
     <input type="number" id="course-price" placeholder="Cena (zł)" step="0.01">
-    <input type="text" id="course-duration" placeholder="Czas trwania (np. 4 godziny)">
+    <input type="text" id="course-duration" placeholder="Czas trwania">
     <textarea id="course-desc" placeholder="Opis kursu" rows="3"></textarea>
-    <button onclick="addCourse()">Dodaj Kurs</button>
+    <button onclick="addCourse()">Dodaj kurs</button>
   </div>
 </div>
 
 <!-- Modal Koszyka -->
 <div id="cart-modal" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeCartModal()">&times;</span>
-    <h2>Twój Koszyk</h2>
+    <span class="close" onclick="closeCartModal()">×</span>
+    <h2>Twój koszyk</h2>
     <div id="cart-items"></div>
     <h3 id="cart-total">Razem: 0 zł</h3>
-    <button onclick="clearCart()">Wyczyść koszyk</button>
-    <button onclick="closeCartModal()" style="background:#6c757d;">Zamknij</button>
+    <button onclick="checkout()" style="background:var(--accent);">Przejdź do płatności</button>
+    <button onclick="clearCart()" style="background:#95a5a6; margin-left:10px;">Wyczyść koszyk</button>
   </div>
 </div>
 
+<footer>
+  <p><strong>LuminaMed © 2026</strong> — Polska marka odzieży medycznej premium</p>
+  <p>Kontakt: kontakt@lumina-med.pl | Tel. 123 456 789</p>
+  <p>Regulamin • Polityka prywatności • FAQ</p>
+</footer>
+
 <script>
-// Dane (zapisują się w localStorage)
-let products = JSON.parse(localStorage.getItem('products')) || [
-  {
-    id: 1,
-    name: "Scrubs Klasyczne Niebieskie",
-    price: 129.99,
-    img: "https://via.placeholder.com/300x220/0d6efd/white?text=Scrubs+Niebieskie",
-    desc: "Wysokiej jakości scrubsy medyczne, oddychające, antybakteryjne."
-  },
-  {
-    id: 2,
-    name: "Scrubs Zielone Premium",
-    price: 159.50,
-    img: "https://via.placeholder.com/300x220/198754/white?text=Scrubs+Zielone",
-    desc: "Scrubsy z kieszeniami i regulacją w pasie."
-  }
+// Dane startowe (wiele produktów + realistyczne zdjęcia)
+let products = JSON.parse(localStorage.getItem('lumina_products')) || [
+  {id:1, name:"Scrubs Navy Blue Premium", price:189, img:"https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80", desc:"Klasyczny granatowy zestaw z 4 kieszeniami. Idealny na codzienne dyżury."},
+  {id:2, name:"Scrubs Sage Green", price:209, img:"https://images.unsplash.com/photo-1584516150909-5c6c8b7a8c9c?auto=format&fit=crop&q=80", desc:"Elegancki szałwiowy kolor. Oddychająca tkanina 4-way stretch."},
+  {id:3, name:"Scrubs Teal Ocean", price:199, img:"https://picsum.photos/id/1015/800/600", desc:"Żywy turkusowy odcień. Nowoczesny krój dla kobiet i mężczyzn."},
+  {id:4, name:"Scrubs Rose Quartz", price:179, img:"https://picsum.photos/id/201/800/600", desc:"Delikatny pudrowy róż – idealny dla personelu beauty & med."},
+  {id:5, name:"Scrubs Classic Black", price:219, img:"https://images.unsplash.com/photo-1559757148-5e995136c87b?auto=format&fit=crop&q=80", desc:"Czarny zestaw premium – uniwersalny i elegancki."}
 ];
 
-let courses = JSON.parse(localStorage.getItem('courses')) || [
-  {
-    id: 1,
-    name: "Higiena i noszenie scrubsów",
-    price: 89.00,
-    duration: "2 godziny",
-    desc: "Kurs online o prawidłowym użytkowaniu odzieży medycznej."
-  }
+let courses = JSON.parse(localStorage.getItem('lumina_courses')) || [
+  {id:1, name:"Higiena i pielęgnacja scrubsów", price:89, duration:"2 godziny", desc:"Jak prawidłowo prać i przechowywać odzież medyczną."},
+  {id:2, name:"Stylizacja medyczna – wyglądaj profesjonalnie", price:129, duration:"4 godziny", desc:"Dobór kolorów, dodatków i akcesoriów do scrubsów."}
 ];
 
 let cart = [];
 
-// Render produktów
+// Render funkcji
 function renderProducts() {
   const grid = document.getElementById('products-grid');
   grid.innerHTML = '';
@@ -242,7 +208,7 @@ function renderProducts() {
       <div class="card-body">
         <h3>${p.name}</h3>
         <p>${p.desc}</p>
-        <div class="price">${p.price.toFixed(2)} zł</div>
+        <div class="price">${p.price} zł</div>
         <button onclick="addToCart('product', ${p.id})">Dodaj do koszyka</button>
       </div>
     `;
@@ -250,7 +216,6 @@ function renderProducts() {
   });
 }
 
-// Render kursów
 function renderCourses() {
   const grid = document.getElementById('courses-grid');
   grid.innerHTML = '';
@@ -261,8 +226,8 @@ function renderCourses() {
       <div class="card-body">
         <h3>${c.name}</h3>
         <p>${c.desc}</p>
-        <p><strong>Czas:</strong> ${c.duration}</p>
-        <div class="price">${c.price.toFixed(2)} zł</div>
+        <p><strong>${c.duration}</strong></p>
+        <div class="price">${c.price} zł</div>
         <button onclick="addToCart('course', ${c.id})">Kup kurs</button>
       </div>
     `;
@@ -270,139 +235,67 @@ function renderCourses() {
   });
 }
 
-// Dodawanie produktu
-function addProduct() {
+// Koszyk i reszta funkcji (takie same jak wcześniej)
+function addProduct() { /* ... taka sama jak w poprzedniej wersji */ 
   const name = document.getElementById('prod-name').value;
   const price = parseFloat(document.getElementById('prod-price').value);
-  const img = document.getElementById('prod-img').value || 'https://via.placeholder.com/300x220/0d6efd/white?text=Nowy+Scrubs';
-  const desc = document.getElementById('prod-desc').value;
-
-  if (!name || !price) {
-    alert("Podaj przynajmniej nazwę i cenę!");
-    return;
-  }
-
-  products.push({
-    id: Date.now(),
-    name,
-    price,
-    img,
-    desc: desc || "Brak opisu"
-  });
-
-  localStorage.setItem('products', JSON.stringify(products));
+  const img = document.getElementById('prod-img').value || 'https://picsum.photos/id/201/800/600';
+  const desc = document.getElementById('prod-desc').value || 'Brak opisu';
+  if (!name || !price) return alert("Nazwa i cena wymagane!");
+  products.push({id:Date.now(), name, price, img, desc});
+  localStorage.setItem('lumina_products', JSON.stringify(products));
   renderProducts();
   alert("Scrubs dodany!");
 }
 
-// Dodawanie kursu
-function addCourse() {
+function addCourse() { /* analogicznie */ 
   const name = document.getElementById('course-name').value;
   const price = parseFloat(document.getElementById('course-price').value);
   const duration = document.getElementById('course-duration').value;
-  const desc = document.getElementById('course-desc').value;
-
-  if (!name || !price) {
-    alert("Podaj nazwę i cenę kursu!");
-    return;
-  }
-
-  courses.push({
-    id: Date.now(),
-    name,
-    price,
-    duration: duration || "Brak informacji",
-    desc: desc || "Brak opisu"
-  });
-
-  localStorage.setItem('courses', JSON.stringify(courses));
+  const desc = document.getElementById('course-desc').value || 'Brak opisu';
+  if (!name || !price) return alert("Nazwa i cena wymagane!");
+  courses.push({id:Date.now(), name, price, duration, desc});
+  localStorage.setItem('lumina_courses', JSON.stringify(courses));
   renderCourses();
   alert("Kurs dodany!");
 }
 
-// Koszyk
 function addToCart(type, id) {
-  let item;
-  if (type === 'product') {
-    item = products.find(p => p.id === id);
-  } else {
-    item = courses.find(c => c.id === id);
-  }
-
+  let item = type === 'product' ? products.find(p => p.id === id) : courses.find(c => c.id === id);
   if (item) {
     cart.push({...item, type});
-    updateCartCount();
-    alert(`${item.name} dodano do koszyka!`);
+    document.getElementById('cart-count').textContent = cart.length;
+    alert(item.name + " dodano do koszyka!");
   }
-}
-
-function updateCartCount() {
-  document.getElementById('cart-count').textContent = cart.length;
 }
 
 function showCart() {
   const modal = document.getElementById('cart-modal');
   const itemsDiv = document.getElementById('cart-items');
   itemsDiv.innerHTML = '';
-
   let total = 0;
-
-  cart.forEach((item, index) => {
+  cart.forEach((item, i) => {
     const div = document.createElement('div');
-    div.style.marginBottom = '15px';
-    div.innerHTML = `
-      <strong>${item.name}</strong> - ${item.price.toFixed(2)} zł 
-      <small>(${item.type === 'product' ? 'Scrubs' : 'Kurs'})</small>
-      <button onclick="removeFromCart(${index})" style="float:right; background:red;">Usuń</button>
-    `;
+    div.style.margin = '15px 0';
+    div.innerHTML = `<strong>${item.name}</strong> — ${item.price} zł <button onclick="removeFromCart(${i})" style="float:right;background:#e74c3c;">Usuń</button>`;
     itemsDiv.appendChild(div);
     total += item.price;
   });
-
-  document.getElementById('cart-total').textContent = `Razem: ${total.toFixed(2)} zł`;
+  document.getElementById('cart-total').textContent = `Razem: ${total} zł`;
   modal.style.display = 'block';
 }
 
-function removeFromCart(index) {
-  cart.splice(index, 1);
-  showCart();
-  updateCartCount();
-}
-
-function clearCart() {
-  if (confirm("Na pewno wyczyścić cały koszyk?")) {
-    cart = [];
-    updateCartCount();
-    showCart();
-  }
-}
-
-function closeCartModal() {
-  document.getElementById('cart-modal').style.display = 'none';
-}
-
-// Modal admin
-function showAdmin() {
-  document.getElementById('admin-modal').style.display = 'block';
-}
-
-function closeModal() {
-  document.getElementById('admin-modal').style.display = 'none';
-}
+function removeFromCart(i) { cart.splice(i,1); showCart(); document.getElementById('cart-count').textContent = cart.length; }
+function clearCart() { if(confirm("Wyczyścić koszyk?")) { cart=[]; document.getElementById('cart-count').textContent = 0; showCart(); }}
+function checkout() { alert("Dziękujemy! Płatności (Stripe/Przelewy24) podepniemy w następnym etapie."); }
+function showAdmin() { document.getElementById('admin-modal').style.display = 'block'; }
+function closeModal() { document.getElementById('admin-modal').style.display = 'none'; }
+function closeCartModal() { document.getElementById('cart-modal').style.display = 'none'; }
 
 // Inicjalizacja
 renderProducts();
 renderCourses();
-updateCartCount();
-
-// Zamykanie modalu kliknięciem poza nim
-window.onclick = function(event) {
-  const adminM = document.getElementById('admin-modal');
-  const cartM = document.getElementById('cart-modal');
-  if (event.target === adminM) adminM.style.display = 'none';
-  if (event.target === cartM) cartM.style.display = 'none';
-}
+document.getElementById('cart-count').textContent = cart.length;
 </script>
-
 </body>
 </html>
