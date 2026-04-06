@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>LuminaMed | Polska odzież medyczna premium</title>
-    <!-- Google Fonts & Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <title>LuminaMed | Polska odzież medyczna premium — B2B, personalizacja, jakość</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -17,7 +16,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background: #ffffff;
-            color: #1e2a36;
+            color: #0f172a;
             scroll-behavior: smooth;
             line-height: 1.5;
         }
@@ -26,14 +25,15 @@
             --navy: #0a3d62;
             --mint: #00b894;
             --mint-dark: #00997a;
+            --gold: #f9ca24;
             --gray-light: #f8fafc;
             --gray-border: #e2e8f0;
             --text-dark: #0f172a;
             --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
             --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
         }
 
-        /* global */
         .container {
             max-width: 1280px;
             margin: 0 auto;
@@ -45,37 +45,56 @@
         }
 
         h2 {
-            font-size: 2.2rem;
-            font-weight: 600;
+            font-size: 2.3rem;
+            font-weight: 700;
             color: var(--navy);
             margin-bottom: 48px;
-            letter-spacing: -0.3px;
-            position: relative;
+            letter-spacing: -0.4px;
         }
         h2:after {
             content: '';
             display: block;
-            width: 70px;
+            width: 80px;
             height: 4px;
             background: var(--mint);
             margin-top: 12px;
             border-radius: 4px;
         }
 
-        button, .btn {
+        .btn-primary {
+            background: var(--navy);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        .btn-primary:hover {
+            background: #0c4d6e;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        .btn-mint {
+            background: var(--mint);
+            color: var(--navy);
+        }
+        .btn-mint:hover {
+            background: var(--mint-dark);
+            color: white;
         }
 
-        /* header sticky */
+        /* header */
         .header {
             position: sticky;
             top: 0;
-            background: rgba(255,255,255,0.96);
-            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(12px);
             z-index: 1000;
             border-bottom: 1px solid var(--gray-border);
-            box-shadow: var(--shadow-sm);
         }
         .nav-container {
             display: flex;
@@ -86,14 +105,11 @@
             margin: 0 auto;
         }
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 1.9rem;
+            font-weight: 800;
             color: var(--navy);
-            letter-spacing: -0.5px;
         }
-        .logo span {
-            color: var(--mint);
-        }
+        .logo span { color: var(--mint); }
         .nav-links {
             display: flex;
             gap: 32px;
@@ -103,10 +119,9 @@
             text-decoration: none;
             font-weight: 500;
             color: #1e2a36;
+            transition: color 0.2s;
         }
-        .nav-links a:hover {
-            color: var(--mint);
-        }
+        .nav-links a:hover { color: var(--mint); }
         .cart-icon {
             position: relative;
             font-size: 1.4rem;
@@ -123,150 +138,132 @@
             border-radius: 30px;
             padding: 2px 6px;
             min-width: 20px;
-            text-align: center;
         }
         .hamburger {
             display: none;
             font-size: 1.8rem;
             cursor: pointer;
         }
+        @media (max-width: 850px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: white;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                padding: 24px;
+                box-shadow: var(--shadow-md);
+                gap: 20px;
+            }
+            .nav-links.open { display: flex; }
+            .hamburger { display: block; }
+        }
 
         /* hero */
         .hero {
             min-height: 90vh;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e6f7f0 100%);
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f7f0 100%);
             display: flex;
             align-items: center;
-            position: relative;
         }
         .hero-grid {
             display: flex;
             flex-wrap: wrap;
+            gap: 48px;
             align-items: center;
-            gap: 40px;
         }
-        .hero-content {
-            flex: 1;
-        }
+        .hero-content { flex: 1; }
         .hero-badge {
             background: var(--mint);
             color: white;
             display: inline-block;
-            padding: 6px 16px;
+            padding: 6px 18px;
             border-radius: 40px;
             font-size: 0.8rem;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 20px;
         }
         .hero-content h1 {
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: 3.2rem;
+            font-weight: 800;
             color: var(--navy);
             margin-bottom: 20px;
-        }
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 32px;
-            color: #334155;
-        }
-        .btn-primary {
-            background: var(--navy);
-            color: white;
-            border: none;
-            padding: 14px 32px;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 1rem;
-            box-shadow: var(--shadow-sm);
-        }
-        .btn-primary:hover {
-            background: #0c4d6e;
-            transform: translateY(-2px);
         }
         .model-interactive {
             flex: 1;
             background: white;
-            border-radius: 40px;
-            padding: 20px;
-            box-shadow: var(--shadow-md);
+            border-radius: 48px;
+            padding: 24px;
+            box-shadow: var(--shadow-lg);
             text-align: center;
         }
         .model-img {
             width: 100%;
-            max-width: 320px;
+            max-width: 350px;
             border-radius: 32px;
-            transition: all 0.2s;
         }
         .color-picker {
-            margin-top: 24px;
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
             justify-content: center;
+            margin-top: 24px;
         }
         .color-option {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 60px;
             cursor: pointer;
             border: 2px solid white;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             transition: transform 0.1s;
         }
-        .color-option.active {
-            transform: scale(1.1);
-            border: 2px solid var(--navy);
-        }
+        .color-option.active { transform: scale(1.1); border: 2px solid var(--navy); }
 
-        /* karty */
-        .features-grid, .bestsellers-grid, .reviews-grid, .courses-grid {
+        /* karty produktów */
+        .products-grid, .bestsellers-grid, .courses-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 32px;
         }
-        .card {
+        .product-card {
             background: white;
             border-radius: 28px;
-            padding: 28px 20px;
+            padding: 20px;
             box-shadow: var(--shadow-sm);
             transition: all 0.25s;
             border: 1px solid var(--gray-border);
         }
-        .card:hover {
-            transform: translateY(-5px);
+        .product-card:hover {
+            transform: translateY(-6px);
             box-shadow: var(--shadow-md);
         }
         .product-card img {
             width: 100%;
-            border-radius: 24px;
-            background: #f1f5f9;
-            height: 220px;
+            border-radius: 20px;
+            height: 240px;
             object-fit: cover;
+            background: #f1f5f9;
         }
-        .price {
-            font-weight: 700;
-            color: var(--navy);
-            font-size: 1.3rem;
-        }
-
-        /* shop filters */
+        .price { font-weight: 700; font-size: 1.4rem; color: var(--navy); margin: 12px 0; }
         .filters-bar {
             display: flex;
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 12px;
             margin-bottom: 32px;
-            align-items: center;
             background: var(--gray-light);
             padding: 20px;
-            border-radius: 48px;
+            border-radius: 60px;
+            align-items: center;
         }
         .filter-group select, .filter-group input {
-            padding: 8px 14px;
+            padding: 10px 18px;
             border-radius: 40px;
             border: 1px solid var(--gray-border);
+            font-family: inherit;
         }
-
-        /* modal koszyk */
         .modal {
             display: none;
             position: fixed;
@@ -278,75 +275,50 @@
         }
         .modal-content {
             background: white;
-            max-width: 550px;
+            max-width: 600px;
             width: 90%;
             border-radius: 40px;
             padding: 28px;
             max-height: 80vh;
             overflow-y: auto;
         }
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 16px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 12px;
-        }
-
-        /* Accordion FAQ */
         .faq-item {
             border-bottom: 1px solid var(--gray-border);
             margin-bottom: 16px;
         }
         .faq-question {
-            background: none;
             width: 100%;
-            text-align: left;
+            background: none;
+            border: none;
             padding: 20px 0;
             font-weight: 600;
             font-size: 1.1rem;
-            border: none;
+            text-align: left;
             display: flex;
             justify-content: space-between;
+            cursor: pointer;
         }
-        .faq-answer {
-            display: none;
-            padding-bottom: 20px;
-            color: #475569;
-        }
-
-        @media (max-width: 850px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                background: white;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                padding: 24px;
-                box-shadow: var(--shadow-sm);
-                gap: 20px;
-            }
-            .nav-links.open {
-                display: flex;
-            }
-            .hamburger {
-                display: block;
-            }
-            .hero-grid {
-                flex-direction: column;
-            }
-        }
+        .faq-answer { display: none; padding-bottom: 20px; color: #475569; }
         footer {
             background: #0f172a;
             color: #cbd5e1;
             padding: 48px 0;
         }
-        .trust-badge i {
-            font-size: 2rem;
-            margin-right: 12px;
-            color: var(--mint);
+        .trust-badge i { font-size: 2rem; margin-right: 16px; color: var(--mint); }
+        .b2b-banner {
+            background: linear-gradient(135deg, #0a3d62 0%, #00b894 100%);
+            border-radius: 40px;
+            padding: 48px;
+            color: white;
+            margin-top: 40px;
+        }
+        .size-guide-btn {
+            background: none;
+            border: 1px dashed var(--navy);
+            padding: 6px 12px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.75rem;
         }
     </style>
 </head>
@@ -360,114 +332,88 @@
             <a href="#" data-section="home">Strona główna</a>
             <a href="#" data-section="shop">Sklep</a>
             <a href="#" data-section="courses">Kursy</a>
+            <a href="#" data-section="b2b">B2B</a>
             <a href="#" data-section="about">O nas</a>
             <a href="#" data-section="faq">FAQ</a>
-            <a href="#" data-section="contact">Kontakt</a>
             <div class="cart-icon" id="cartIcon"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cartCount">0</span></div>
         </div>
     </div>
 </div>
 
 <main>
-    <!-- HERO / Strona główna -->
+    <!-- Hero -->
     <section id="home" class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <div class="hero-badge">Nowa kolekcja FW 2025</div>
+                <div class="hero-badge">✨ Nowość 2025 — haft personalizowany</div>
                 <h1>Polska odzież medyczna premium<br>Komfort przez cały dyżur</h1>
-                <p>Oddychające tkaniny, innowacyjne kroje. Stworzone przez personel medyczny.</p>
-                <button class="btn-primary" id="goToShopBtn">Przejdź do sklepu →</button>
+                <p>Oddychające tkaniny Oeko-Tex, 30 dni na zwrot, darmowa dostawa od 250 zł.</p>
+                <button class="btn-primary" id="goToShopBtn">🛒 Przejdź do sklepu</button>
+                <button class="btn-primary btn-mint" id="b2bBtn" style="margin-left:12px;">🏢 Portal B2B</button>
             </div>
             <div class="model-interactive">
-                <img id="modelImage" src="https://placehold.co/400x500/e2f0e8/0a3d62?text=Scrub+Premium" alt="model scrubs" class="model-img">
+                <img id="modelImage" src="https://placehold.co/400x500/0a3d62/ffffff?text=Scrub+Premium" class="model-img" alt="scrub">
                 <div class="color-picker" id="colorPicker"></div>
-                <p style="margin-top:12px; font-size:0.8rem;">Kliknij aby zmienić kolor stroju</p>
+                <p style="margin-top:12px;"><i class="fas fa-palette"></i> Zmień kolor uniformu</p>
             </div>
         </div>
     </section>
 
-    <!-- Dlaczego LuminaMed -->
-    <section id="why-us">
-        <div class="container">
-            <h2>Dlaczego LuminaMed?</h2>
-            <div class="features-grid">
-                <div class="card"><i class="fas fa-leaf" style="font-size:2.5rem; color:var(--mint)"></i><h3>Bawełna premium</h3><p>Oddychające, antyalergiczne materiały.</p></div>
-                <div class="card"><i class="fas fa-trophy" style="font-size:2.5rem; color:var(--mint)"></i><h3>Made in Poland</h3><p>Ręczne wykończenia, lokalna produkcja.</p></div>
-                <div class="card"><i class="fas fa-hand-holding-heart" style="font-size:2.5rem; color:var(--mint)"></i><h3>Ergonomia</h3><p>Kieszenie, elastyczne pasy, certyfikacja medyczna.</p></div>
-                <div class="card"><i class="fas fa-recycle" style="font-size:2.5rem; color:var(--mint)"></i><h3>Zrównoważona moda</h3><p>Zero waste, opakowania eko.</p></div>
-            </div>
-        </div>
-    </section>
+    <!-- Dlaczego my -->
+    <section><div class="container"><h2>Dlaczego LuminaMed?</h2><div class="products-grid" id="featuresGrid"></div></div></section>
 
     <!-- Bestsellery -->
-    <section style="background: var(--gray-light);">
-        <div class="container">
-            <h2>⭐ Bestsellery</h2>
-            <div id="bestsellersContainer" class="bestsellers-grid"></div>
-        </div>
-    </section>
+    <section style="background:var(--gray-light)"><div class="container"><h2>🏆 Bestsellery 2025</h2><div id="bestsellersContainer" class="products-grid"></div></div></section>
 
-    <!-- Opinie -->
-    <section>
-        <div class="container">
-            <h2>Co mówią lekarze i pielęgniarki?</h2>
-            <div class="reviews-grid" id="reviewsContainer"></div>
+    <!-- Sklep z filtrami -->
+    <section id="shop"><div class="container"><h2>Sklep – odzież i gadżety medyczne</h2>
+        <div class="filters-bar">
+            <input type="text" id="searchInput" placeholder="🔍 Szukaj produktu...">
+            <select id="colorFilter"><option value="">Kolor</option><option value="Niebieski">Niebieski</option><option value="Granat">Granat</option><option value="Miętowy">Miętowy</option><option value="Biały">Biały</option></select>
+            <select id="sizeFilter"><option value="">Rozmiar</option><option value="XS">XS</option><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
+            <select id="genderFilter"><option value="">Płeć</option><option value="damskie">Damskie</option><option value="męskie">Męskie</option><option value="unisex">Unisex</option></select>
+            <select id="sortSelect"><option value="default">Sortuj</option><option value="price-asc">Cena ↑</option><option value="price-desc">Cena ↓</option><option value="bestseller">Bestsellery</option></select>
+            <button id="sizeGuideModalBtn" class="size-guide-btn"><i class="fas fa-ruler"></i> Tabela rozmiarów</button>
         </div>
-    </section>
+        <div id="shopProductsGrid" class="products-grid"></div>
+        <!-- Bundle promocja -->
+        <div style="background:#e6f7f0; border-radius:32px; padding:24px; margin-top:40px; text-align:center;"><i class="fas fa-gift" style="font-size:2rem; color:var(--mint);"></i><h3>Kup komplet (góra + spodnie) i zaoszczędź 15%!</h3><button id="bundleBtn" class="btn-primary btn-mint">Zobacz zestawy</button></div>
+    </div></section>
 
-    <!-- Sklep (produkty + filtry) -->
-    <section id="shop" style="background:#fff">
-        <div class="container">
-            <h2>Sklep – Odzież i gadżety</h2>
-            <div class="filters-bar" id="filtersBar">
-                <input type="text" id="searchInput" placeholder="Szukaj produktu..." style="padding:10px;border-radius:40px;border:1px solid #ccc;">
-                <select id="colorFilter"><option value="">Kolor</option><option value="Niebieski">Niebieski</option><option value="Granat">Granat</option><option value="Miętowy">Miętowy</option><option value="Biały">Biały</option></select>
-                <select id="sizeFilter"><option value="">Rozmiar</option><option value="XS">XS</option><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
-                <select id="genderFilter"><option value="">Płeć</option><option value="damskie">Damskie</option><option value="męskie">Męskie</option><option value="unisex">Unisex</option></select>
-                <select id="sortSelect"><option value="default">Sortuj: domyślnie</option><option value="price-asc">Od najniższej ceny</option><option value="price-desc">Od najwyższej ceny</option></select>
-            </div>
-            <div id="shopProductsGrid" class="bestsellers-grid"></div>
-        </div>
-    </section>
+    <!-- Sekcja kursy -->
+    <section id="courses" style="background:var(--gray-light)"><div class="container"><h2>📚 Kursy dla personelu medycznego</h2><div id="coursesContainer" class="courses-grid"></div><div style="margin-top:30px;"><button id="adminPanelBtn" style="background:transparent; border:1px solid var(--navy); padding:10px 24px; border-radius:40px;">🔧 Panel Admina (dodaj produkt/kurs)</button></div></div></section>
 
-    <!-- Sekcja Kursy -->
-    <section id="courses" style="background: var(--gray-light);">
-        <div class="container">
-            <h2>Kursy dla personelu medycznego</h2>
-            <div id="coursesContainer" class="courses-grid"></div>
-            <div style="margin-top:30px; text-align:center;"><button id="adminPanelBtn" style="background:transparent; border:1px solid var(--navy); padding:8px 20px; border-radius:40px;">🔧 Panel Admina (dodaj produkt/kurs)</button></div>
-        </div>
-    </section>
+    <!-- Sekcja B2B -->
+    <section id="b2b"><div class="container"><div class="b2b-banner"><i class="fas fa-building" style="font-size:3rem;"></i><h2 style="color:white; margin-top:12px;">Portal B2B – dla klinik i szpitali</h2><p>Indywidualne ceny, faktury 14 dni, dedykowany opiekun. Zarejestruj się i zamawiaj hurtowo.</p><button id="b2bRegisterBtn" class="btn-primary" style="background:white; color:var(--navy); margin-top:16px;">Zarejestruj firmę →</button></div></div></section>
 
     <!-- O nas -->
-    <section id="about">
-        <div class="container"><h2>O nas – polskie korzenie</h2><p>LuminaMed powstała z pasji do medycyny i mody. Projektujemy odzież, która wspiera personel przez 12-godzinne dyżury. Szyjemy w Łodzi, używamy certyfikowanych tkanin Oeko-Tex. Dołącz do grona zadowolonych klinik w całej Polsce.</p></div>
-    </section>
+    <section id="about"><div class="container"><h2>O nas – polskie korzenie</h2><p>Szyjemy w Łodzi, używamy tkanin Oeko-Tex. Projektujemy z myślą o 12-godzinnych dyżurach. Jesteśmy dumni z polskiego rzemiosła.</p><div class="trust-badge" style="margin-top:24px;"><i class="fas fa-check-circle"></i> Certyfikat ISO 13485 <i class="fas fa-leaf"></i> Bawełna organiczna</div></div></section>
 
-    <!-- FAQ Accordion -->
-    <section id="faq">
-        <div class="container"><h2>Najczęstsze pytania</h2><div id="faqAccordion"></div></div>
-    </section>
-    <section id="contact"><div class="container"><h2>Kontakt</h2><p>📧 hello@luminamed.pl | 📞 +48 22 123 45 67 | ul. Medyczna 8, Warszawa</p></div></section>
+    <!-- FAQ -->
+    <section id="faq"><div class="container"><h2>Najczęstsze pytania</h2><div id="faqAccordion"></div></div></section>
+
+    <!-- Newsletter -->
+    <section style="background:var(--gray-light)"><div class="container"><h2>📧 Newsletter – 10% zniżki na pierwsze zakupy</h2><div style="display:flex; gap:12px; flex-wrap:wrap;"><input type="email" id="newsEmail" placeholder="Twój e-mail" style="flex:1; padding:14px; border-radius:60px; border:1px solid var(--gray-border);"><button id="newsBtn" class="btn-primary">Zapisz się</button></div><p id="newsMsg" style="margin-top:12px;"></p></div></section>
 </main>
 
-<footer><div class="container" style="display:flex; flex-wrap:wrap; justify-content:space-between;"><div>© LuminaMed 2025 • Regulamin | Polityka prywatności | RODO</div><div class="trust-badge"><i class="fab fa-cc-visa"></i><i class="fab fa-paypal"></i><i class="fas fa-box"></i> InPost | 🇵🇱 Made in Poland</div></div></footer>
+<footer><div class="container"><div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;"><div>© 2025 LuminaMed • <a href="#" style="color:white;">Regulamin</a> | Polityka prywatności | RODO</div><div><i class="fab fa-cc-visa"></i> <i class="fab fa-paypal"></i> <i class="fas fa-truck"></i> InPost | 🇵🇱 Made in Poland</div></div></div></footer>
 
-<!-- Modal koszyka -->
-<div id="cartModal" class="modal"><div class="modal-content"><h3>Twój koszyk</h3><div id="cartItemsList"></div><div id="cartSummary"></div><button id="closeCartBtn" class="btn-primary" style="margin-top:16px;">Zamknij</button><button id="checkoutBtn" class="btn-primary" style="background:var(--mint); margin-left:10px;">Przejdź do płatności</button></div></div>
-
-<!-- Quick View Modal -->
+<!-- Modale -->
+<div id="cartModal" class="modal"><div class="modal-content"><h3>🛒 Twój koszyk</h3><div id="cartItemsList"></div><div id="cartSummary"></div><button id="closeCartBtn" class="btn-primary">Zamknij</button><button id="checkoutBtn" class="btn-primary btn-mint">Płatność</button></div></div>
 <div id="quickViewModal" class="modal"><div class="modal-content" id="quickViewContent"></div></div>
+<div id="sizeGuideModal" class="modal"><div class="modal-content"><h3>Tabela rozmiarów scrubsów</h3><img src="https://placehold.co/500x400/e2e8f0/0a3d62?text=Size+Chart:+XS-XL" width="100%"><button id="closeSizeGuide">Zamknij</button></div></div>
 
 <script>
-    // ---------- DANE GLOBALNE (localStorage friendly) ----------
+    // ---------- DANE PRODUKTÓW (Premium) ----------
     let products = [
-        { id: 1, name: "Scrub damski Luna", price: 249, color: "Niebieski", size: ["XS","S","M","L"], gender: "damskie", category: "scrubs", image: "https://placehold.co/400x500/0a3d62/white?text=Blue+Scrub", bestseller: true, type: "odzież" },
-        { id: 2, name: "Scrub męski Aura", price: 269, color: "Granat", size: ["M","L","XL"], gender: "męskie", category: "scrubs", image: "https://placehold.co/400x500/1e4a6e/white?text=Navy+Scrub", bestseller: true, type: "odzież" },
-        { id: 3, name: "Kurtka medyczna Flex", price: 199, color: "Miętowy", size: ["S","M","L"], gender: "unisex", category: "gadżety", image: "https://placehold.co/400x500/00b894/white?text=Mint+Jacket", bestseller: false, type: "gadżety" },
-        { id: 4, name: "Torba lekarska Premium", price: 159, color: "Biały", size: [], gender: "unisex", category: "gadżety", image: "https://placehold.co/400x500/f1f5f9/0a3d62?text=Medical+Bag", bestseller: false, type: "gadżety" },
-        { id: 5, name: "Czepek operacyjny", price: 49, color: "Miętowy", size: [], gender: "unisex", category: "gadżety", image: "https://placehold.co/400x500/cbd5e1/0a3d62?text=Cap", bestseller: false, type: "gadżety" },
-        { id: 6, name: "Buty medyczne AirStep", price: 299, color: "Biały", size: ["36","37","38","39","40"], gender: "unisex", category: "gadżety", image: "https://placehold.co/400x500/white/0a3d62?text=Shoes", bestseller: true, type: "gadżety" }
+        { id: 1, name: "Scrub damski Luna", price: 249, color: "Niebieski", size: ["XS","S","M","L"], gender: "damskie", category: "scrubs", image: "https://placehold.co/400x500/0a3d62/white?text=Luna+Blue", bestseller: true, type: "odzież", rating: 4.9 },
+        { id: 2, name: "Scrub męski Aura", price: 269, color: "Granat", size: ["M","L","XL"], gender: "męskie", category: "scrubs", image: "https://placehold.co/400x500/1e4a6e/white?text=Aura+Navy", bestseller: true, type: "odzież", rating: 4.8 },
+        { id: 3, name: "Kurtka medyczna Flex", price: 199, color: "Miętowy", size: ["S","M","L"], gender: "unisex", category: "gadżety", image: "https://placehold.co/400x500/00b894/white?text=Flex+Mint", bestseller: false, type: "gadżety" },
+        { id: 4, name: "Torba lekarska Premium", price: 159, color: "Biały", size: [], gender: "unisex", category: "gadżety", image: "https://placehold.co/400x500/f8fafc/0a3d62?text=Medical+Bag", bestseller: true, type: "gadżety" },
+        { id: 5, name: "Czepek operacyjny", price: 49, color: "Miętowy", size: [], gender: "unisex", category: "gadżety", image: "https://placehold.co/400x500/cbd5e1/0a3d62?text=Cap", bestseller: false },
+        { id: 6, name: "Buty medyczne AirStep", price: 299, color: "Biały", size: ["36","37","38","39","40"], gender: "unisex", category: "gadżety", image: "https://placehold.co/400x500/white/0a3d62?text=AirStep", bestseller: true },
+        { id: 7, name: "Scrub unisex WhiteCode", price: 229, color: "Biały", size: ["XS","S","M","L","XL"], gender: "unisex", category: "scrubs", image: "https://placehold.co/400x500/f8f9fa/0a3d62?text=WhiteCode", bestseller: false },
+        { id: 8, name: "Identyfikator LED", price: 29, color: "Granat", size: [], gender: "unisex", category: "gadżety", image: "https://placehold.co/400x500/2c3e50/white?text=ID+LED", bestseller: false }
     ];
     let courses = [
         { id: 101, title: "Pielęgniarstwo w sytuacjach kryzysowych", duration: "16h", price: 499, level: "zaawansowany" },
@@ -476,66 +422,70 @@
     ];
     let cart = JSON.parse(localStorage.getItem('luminamed_cart')) || [];
     let faqData = [
-        { q: "Czy odzież jest prana w wysokich temperaturach?", a: "Tak, nasze tkaniny wytrzymują pranie do 90°C." }, { q: "Czy wysyłka jest gratis?", a: "Powyżej 250 zł – dostawa InPost gratis." }, { q: "Czy mogę zwrócić scrub?", a: "Tak, 30 dni na zwrot." }, { q: "Rozmiarówka?", a: "Znajdziesz tabelę w każdym produkcie." }, { q: "Czy produkty są certyfikowane?", a: "Posiadamy certyfikat Oeko-Tex Standard 100." }, { q: "Czy prowadzicie sprzedaż hurtową?", a: "Tak, napisz do działu B2B." }, { q: "Gdzie szyjecie?", a: "Łódź, Polska." }, { q: "Czy scruby mają kieszenie?", a: "Tak, minimum 4 kieszenie." }
+        { q: "Czy odzież można prać w 90°C?", a: "Tak, nasze tkaniny są certyfikowane do wysokich temperatur." },
+        { q: "Czy oferujecie haft personalizowany?", a: "Tak! Dodaj logo lub imię – koszt 29 zł, realizacja 3 dni." },
+        { q: "Ile kosztuje wysyłka?", a: "Kurier/InPost 15 zł, darmowa od 250 zł." },
+        { q: "Czy jest możliwość zwrotu?", a: "30 dni na zwrot bez podania przyczyny." },
+        { q: "Czy prowadzicie sprzedaż hurtową B2B?", a: "Tak, zarejestruj się w portalu B2B po indywidualne ceny." },
+        { q: "Gdzie szyjecie odzież?", a: "Łódź, Polska – lokalna produkcja." },
+        { q: "Czy scruby mają kieszenie?", a: "Tak, minimum 5 praktycznych kieszeni." },
+        { q: "Czy mogę zamówić zestaw (góra+spodnie)?", a: "Tak, rabat 15% na komplet." }
     ];
-
     function saveCart() { localStorage.setItem('luminamed_cart', JSON.stringify(cart)); updateCartCount(); }
-    function updateCartCount() { document.getElementById('cartCount').innerText = cart.reduce((sum, i) => sum + i.quantity, 0); }
+    function updateCartCount() { document.getElementById('cartCount').innerText = cart.reduce((s,i)=>s+i.quantity,0); }
 
     function renderProducts(containerId, productArray, isShop = false) {
         const container = document.getElementById(containerId);
         if(!container) return;
-        container.innerHTML = productArray.map(p => `<div class="card product-card"><img src="${p.image}" alt="${p.name}"><h3>${p.name}</h3><div class="price">${p.price} zł</div><div>Rozmiar: <select class="size-select" data-id="${p.id}">${p.size.length ? p.size.map(s=>`<option>${s}</option>`).join('') : '<option>uniwersalny</option>'}</select></div><button class="add-to-cart-btn btn-primary" style="margin-top:12px; padding:8px 12px;" data-id="${p.id}">➕ Dodaj do koszyka</button><button class="quick-view-btn" data-id="${p.id}" style="background:none; border:1px solid var(--mint); margin-left:8px; padding:8px;">👁️ Szybki podgląd</button></div>`).join('');
-        document.querySelectorAll('.add-to-cart-btn').forEach(btn => btn.addEventListener('click', (e) => { let id = parseInt(btn.dataset.id); let prod = products.find(p=>p.id===id); let sizeSelect = btn.closest('.product-card')?.querySelector('.size-select'); let size = sizeSelect ? sizeSelect.value : 'uniwersalny'; let existing = cart.find(i=>i.id===id && i.size===size); if(existing) existing.quantity++; else cart.push({...prod, quantity:1, selectedSize: size}); saveCart(); alert('Dodano do koszyka'); }));
-        document.querySelectorAll('.quick-view-btn').forEach(btn => btn.addEventListener('click', (e) => { let id = parseInt(btn.dataset.id); let prod = products.find(p=>p.id===id); document.getElementById('quickViewContent').innerHTML = `<h3>${prod.name}</h3><img src="${prod.image}" width="200"><p>Cena: ${prod.price} zł</p><p>Dostępne rozmiary: ${prod.size.join(', ')}</p><button id="closeQuickView">Zamknij</button>`; document.getElementById('quickViewModal').style.display='flex'; document.getElementById('closeQuickView').onclick = ()=> document.getElementById('quickViewModal').style.display='none'; }));
+        container.innerHTML = productArray.map(p => `<div class="product-card"><img src="${p.image}" alt="${p.name}"><h3>${p.name} ${p.rating ? '⭐'+p.rating : ''}</h3><div class="price">${p.price} zł</div><div>${p.size?.length ? `<select class="size-select" data-id="${p.id}">${p.size.map(s=>`<option>${s}</option>`).join('')}</select>` : '<i>uniwersalny</i>'}</div><div style="margin-top:12px;"><button class="add-to-cart-btn btn-primary" data-id="${p.id}" style="padding:8px 16px;">➕ Dodaj</button><button class="quick-view-btn" data-id="${p.id}" style="margin-left:8px; background:transparent; border:1px solid var(--mint); padding:8px 12px; border-radius:40px;">👁️ Podgląd</button></div></div>`).join('');
+        document.querySelectorAll('.add-to-cart-btn').forEach(btn => btn.addEventListener('click', (e) => { let id = parseInt(btn.dataset.id); let prod = products.find(p=>p.id===id); let sizeSelect = btn.closest('.product-card')?.querySelector('.size-select'); let size = sizeSelect ? sizeSelect.value : 'uniwersalny'; let existing = cart.find(i=>i.id===id && i.selectedSize===size); if(existing) existing.quantity++; else cart.push({...prod, quantity:1, selectedSize: size}); saveCart(); alert(`✨ ${prod.name} dodany do koszyka`); }));
+        document.querySelectorAll('.quick-view-btn').forEach(btn => btn.addEventListener('click', () => { let prod = products.find(p=>p.id==btn.dataset.id); document.getElementById('quickViewContent').innerHTML = `<h3>${prod.name}</h3><img src="${prod.image}" width="200"><p>Cena: ${prod.price} zł</p><p>Rozmiary: ${prod.size?.join(', ') || 'uniwersalny'}</p><button id="closeQuickViewBtn" class="btn-primary">Zamknij</button>`; document.getElementById('quickViewModal').style.display='flex'; document.getElementById('closeQuickViewBtn').onclick = () => document.getElementById('quickViewModal').style.display='none'; }));
     }
 
     function renderShopWithFilters() {
         let filtered = [...products];
-        const search = document.getElementById('searchInput')?.value.toLowerCase();
+        let search = document.getElementById('searchInput')?.value.toLowerCase();
         if(search) filtered = filtered.filter(p=>p.name.toLowerCase().includes(search));
-        const color = document.getElementById('colorFilter')?.value;
+        let color = document.getElementById('colorFilter')?.value;
         if(color) filtered = filtered.filter(p=>p.color === color);
-        const sizeF = document.getElementById('sizeFilter')?.value;
-        if(sizeF) filtered = filtered.filter(p=>p.size.includes(sizeF));
-        const gender = document.getElementById('genderFilter')?.value;
+        let sizeF = document.getElementById('sizeFilter')?.value;
+        if(sizeF) filtered = filtered.filter(p=>p.size?.includes(sizeF));
+        let gender = document.getElementById('genderFilter')?.value;
         if(gender) filtered = filtered.filter(p=>p.gender === gender);
-        const sort = document.getElementById('sortSelect')?.value;
+        let sort = document.getElementById('sortSelect')?.value;
         if(sort === 'price-asc') filtered.sort((a,b)=>a.price-b.price);
         if(sort === 'price-desc') filtered.sort((a,b)=>b.price-a.price);
-        renderProducts('shopProductsGrid', filtered, true);
+        if(sort === 'bestseller') filtered.sort((a,b)=> (b.bestseller?1:0) - (a.bestseller?1:0));
+        renderProducts('shopProductsGrid', filtered);
     }
-    
-    function renderCourses() { document.getElementById('coursesContainer').innerHTML = courses.map(c => `<div class="card"><h3>${c.title}</h3><p>⏱️ ${c.duration} | 🎓 ${c.level}</p><div class="price">${c.price} zł</div><button class="enroll-btn" style="background:var(--mint); border:none; padding:8px 16px; border-radius:40px;">Zapisz się</button></div>`).join(''); }
-    function renderReviews() { document.getElementById('reviewsContainer').innerHTML = [["Anna K.","❤️ Najwygodniejsze scruby!","5"],["Dr Janusz","Polska jakość top","5"],["Maria W.","Miętowy kolor cudowny","4.5"]].map(r=>`<div class="card"><i class="fas fa-star" style="color:gold"></i> ${r[2]}<p>“${r[1]}”</p><strong>${r[0]}</strong></div>`).join(''); }
+    function renderCourses() { document.getElementById('coursesContainer').innerHTML = courses.map(c => `<div class="product-card"><h3>${c.title}</h3><p>⏱️ ${c.duration} | 🎓 ${c.level}</p><div class="price">${c.price} zł</div><button class="enroll-btn" style="background:var(--mint); border:none; padding:8px 16px; border-radius:40px;">📖 Zapisz się</button></div>`).join(''); }
     function renderBestsellers() { renderProducts('bestsellersContainer', products.filter(p=>p.bestseller)); }
     function renderFAQ() { document.getElementById('faqAccordion').innerHTML = faqData.map((item,idx)=>`<div class="faq-item"><button class="faq-question">${item.q} <i class="fas fa-chevron-down"></i></button><div class="faq-answer">${item.a}</div></div>`).join(''); document.querySelectorAll('.faq-question').forEach(btn=>btn.addEventListener('click',()=>{ let ans = btn.nextElementSibling; ans.style.display = ans.style.display === 'block' ? 'none' : 'block'; })); }
+    function renderCartModal() { let itemsHtml = cart.map((item,idx)=>`<div class="cart-item"><div><b>${item.name}</b> (${item.selectedSize}) x${item.quantity}</div><div>${item.price*item.quantity} zł <button data-idx="${idx}" class="remove-item">🗑️</button> <button data-idx="${idx}" class="inc-item">+</button> <button data-idx="${idx}" class="dec-item">-</button></div></div>`).join(''); let total = cart.reduce((s,i)=>s+i.price*i.quantity,0); let shipping = total>250 ? 0 : 15; document.getElementById('cartItemsList').innerHTML = itemsHtml || '<p>Koszyk pusty</p>'; document.getElementById('cartSummary').innerHTML = `<hr>Razem: ${total} zł + wysyłka ${shipping} zł = <strong>${total+shipping} zł</strong>`; document.querySelectorAll('.remove-item').forEach(btn=>btn.addEventListener('click',()=>{ cart.splice(btn.dataset.idx,1); saveCart(); renderCartModal(); })); document.querySelectorAll('.inc-item').forEach(btn=>btn.addEventListener('click',()=>{ cart[btn.dataset.idx].quantity++; saveCart(); renderCartModal(); })); document.querySelectorAll('.dec-item').forEach(btn=>btn.addEventListener('click',()=>{ if(cart[btn.dataset.idx].quantity>1) cart[btn.dataset.idx].quantity--; else cart.splice(btn.dataset.idx,1); saveCart(); renderCartModal(); })); }
+    function showAdminPanel() { let name = prompt("Nazwa produktu"); let price = parseFloat(prompt("Cena")); let color = prompt("Kolor"); let sizes = prompt("Rozmiary (przecinkiem)").split(','); let gender = prompt("płeć (damskie/męskie/unisex)"); let image = prompt("URL zdjęcia"); if(name && price) products.push({ id: Date.now(), name, price, color, size: sizes, gender, image, bestseller: false, type: "odzież" }); let courseName = prompt("Dodaj kurs? Tytuł"); if(courseName) { let dur = prompt("Czas"); let cprice = prompt("Cena"); let lvl = prompt("Poziom"); courses.push({ id: Date.now(), title: courseName, duration: dur, price: parseInt(cprice), level: lvl }); } renderShopWithFilters(); renderCourses(); alert("✅ Dodano!"); }
+    function initColorPicker() { const colors = ["#0a3d62","#00b894","#1e4a76","#f0f3f4","#d4af37","#6c5b7b","#e0f2f1"]; let container = document.getElementById('colorPicker'); colors.forEach(c=>{ let btn = document.createElement('div'); btn.style.backgroundColor=c; btn.classList.add('color-option'); btn.addEventListener('click',()=>{ document.getElementById('modelImage').src = `https://placehold.co/400x500/${c.slice(1)}/ffffff?text=Scrub+${c}`; }); container.appendChild(btn); }); }
+    function renderFeatures() { document.getElementById('featuresGrid').innerHTML = [["🌿", "Bawełna premium Oeko-Tex"],["🇵🇱","Made in Poland"],["💪","Ergonomia +5 kieszeni"],["♻️","Zrównoważona moda"]].map(f=>`<div class="product-card"><i class="fas ${f[0]==='🌿'?'fa-leaf':f[0]==='🇵🇱'?'fa-flag-checkered':f[0]==='💪'?'fa-heartbeat':'fa-recycle'}" style="font-size:2.5rem; color:var(--mint)"></i><h3>${f[0]}</h3><p>${f[1]}</p></div>`).join(''); }
     
-    // koszyk modal
-    function renderCartModal() { let itemsHtml = cart.map((item,idx)=>`<div class="cart-item"><div>${item.name} (${item.selectedSize}) x ${item.quantity}</div><div>${item.price*item.quantity} zł <button data-idx="${idx}" class="remove-item">🗑️</button> <button data-idx="${idx}" class="inc-item">+</button> <button data-idx="${idx}" class="dec-item">-</button></div></div>`).join(''); let total = cart.reduce((s,i)=>s+i.price*i.quantity,0); let shipping = total>250 ? 0 : 15; document.getElementById('cartItemsList').innerHTML = itemsHtml || '<p>Koszyk pusty</p>'; document.getElementById('cartSummary').innerHTML = `<hr>Razem: ${total} zł + wysyłka ${shipping} zł = ${total+shipping} zł`; document.querySelectorAll('.remove-item').forEach(btn=>btn.addEventListener('click',()=>{ cart.splice(btn.dataset.idx,1); saveCart(); renderCartModal(); })); document.querySelectorAll('.inc-item').forEach(btn=>btn.addEventListener('click',()=>{ cart[btn.dataset.idx].quantity++; saveCart(); renderCartModal(); })); document.querySelectorAll('.dec-item').forEach(btn=>btn.addEventListener('click',()=>{ if(cart[btn.dataset.idx].quantity>1) cart[btn.dataset.idx].quantity--; else cart.splice(btn.dataset.idx,1); saveCart(); renderCartModal(); })); }
-    
-    // admin panel
-    function showAdminPanel() { let name = prompt("Nazwa produktu"); let price = parseFloat(prompt("Cena")); let color = prompt("Kolor"); let sizes = prompt("Rozmiary (przecinkiem)").split(','); let gender = prompt("płeć (damskie/męskie/unisex)"); let image = prompt("URL zdjęcia (placeholder)"); if(name && price) products.push({ id: Date.now(), name, price, color, size: sizes, gender, image, bestseller: false, type: "odzież" }); let courseName = prompt("Dodaj kurs? Tytuł"); if(courseName) { let dur = prompt("Czas trwania"); let cprice = prompt("Cena"); let lvl = prompt("Poziom"); courses.push({ id: Date.now(), title: courseName, duration: dur, price: parseInt(cprice), level: lvl }); } renderShopWithFilters(); renderCourses(); alert("Zaktualizowano!"); }
-    
-    // hero color picker
-    const colorsList = ["#0a3d62","#00b894","#1e4a76","#f0f3f4","#d4af37","#6c5b7b","#e0f2f1"];
-    function initColorPicker() { let container = document.getElementById('colorPicker'); colorsList.forEach(c=>{ let btn = document.createElement('div'); btn.style.backgroundColor=c; btn.classList.add('color-option'); btn.addEventListener('click',()=>{ document.getElementById('modelImage').src = `https://placehold.co/400x500/${c.slice(1)}/ffffff?text=Scrub+${c}`; }); container.appendChild(btn); }); }
-    
-    // navigation & modal triggers
     document.getElementById('cartIcon').addEventListener('click',()=>{ renderCartModal(); document.getElementById('cartModal').style.display='flex'; });
     document.getElementById('closeCartBtn').addEventListener('click',()=>document.getElementById('cartModal').style.display='none');
-    document.getElementById('checkoutBtn').addEventListener('click',()=>{ alert("Symulacja płatności – dziękujemy!"); document.getElementById('cartModal').style.display='none';});
-    document.querySelectorAll('[data-section]').forEach(link=>link.addEventListener('click',(e)=>{ e.preventDefault(); let id = link.dataset.section; document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); }));
-    document.getElementById('goToShopBtn')?.addEventListener('click',()=>document.getElementById('shop').scrollIntoView({behavior:'smooth'}));
-    document.getElementById('adminPanelBtn')?.addEventListener('click',showAdminPanel);
-    document.getElementById('hamburger')?.addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+    document.getElementById('checkoutBtn').addEventListener('click',()=>{ alert("Dziękujemy! Symulacja płatności online."); document.getElementById('cartModal').style.display='none'; });
+    document.getElementById('goToShopBtn').addEventListener('click',()=>document.getElementById('shop').scrollIntoView({behavior:'smooth'}));
+    document.getElementById('b2bBtn').addEventListener('click',()=>document.getElementById('b2b').scrollIntoView({behavior:'smooth'}));
+    document.getElementById('b2bRegisterBtn').addEventListener('click',()=>alert("Formularz rejestracji B2B – skontaktujemy się w ciągu 24h."));
+    document.getElementById('bundleBtn').addEventListener('click',()=>alert("Zestaw: Scrub Luna + spodnie = 425 zł zamiast 498 zł!"));
+    document.getElementById('sizeGuideModalBtn').addEventListener('click',()=>document.getElementById('sizeGuideModal').style.display='flex');
+    document.getElementById('closeSizeGuide').addEventListener('click',()=>document.getElementById('sizeGuideModal').style.display='none');
+    document.getElementById('adminPanelBtn').addEventListener('click',showAdminPanel);
+    document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
     document.getElementById('searchInput')?.addEventListener('input',renderShopWithFilters);
     document.getElementById('colorFilter')?.addEventListener('change',renderShopWithFilters);
     document.getElementById('sizeFilter')?.addEventListener('change',renderShopWithFilters);
     document.getElementById('genderFilter')?.addEventListener('change',renderShopWithFilters);
     document.getElementById('sortSelect')?.addEventListener('change',renderShopWithFilters);
+    document.getElementById('newsBtn').addEventListener('click',()=>{ let em = document.getElementById('newsEmail').value; if(em) { localStorage.setItem('newsletter',em); document.getElementById('newsMsg').innerText='✅ Dziękujemy! Kod LUMINA10 wysłany na email.'; } else alert('Wpisz email'); });
+    document.querySelectorAll('[data-section]').forEach(link=>link.addEventListener('click',(e)=>{ e.preventDefault(); let id = link.dataset.section; document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); }));
     
-    function init() { renderBestsellers(); renderReviews(); renderCourses(); renderFAQ(); renderShopWithFilters(); initColorPicker(); updateCartCount(); }
+    function init() { renderFeatures(); renderBestsellers(); renderCourses(); renderFAQ(); renderShopWithFilters(); initColorPicker(); updateCartCount(); }
     init();
 </script>
 </body>
