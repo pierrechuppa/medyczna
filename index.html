@@ -129,13 +129,13 @@
                 <div class="founders-grid" id="foundersGrid"></div>
                 <div class="quote">
                     <i class="fas fa-quote-left" style="color:var(--honey); margin-right:12px;"></i> 
-                    Zaczęłyśmy od wiecznego marudzenia, że scruby ze sklepów są albo drogie, albo niewygodne. 
+                    Zaczęłyśmy od wiecznego marudzenia, że scrubsy ze sklepów są albo drogie, albo niewygodne. 
                     Postanowiłyśmy działać – i tak narodził się Scrubee. Dziś szyjemy dla tysięcy dziewczyn w Polsce!
                 </div>
                 <p style="margin-top:24px; font-size:1.05rem; line-height:1.6;">
                     <strong>Scrubee</strong> to dwie przyjaciółki – <strong>Zosia i Martyna</strong>, studentki 4. roku medycyny. 
                     Po jednym szczególnie ciężkim dyżurze na SORze stwierdziłyśmy, że nie możemy dłużej nosić niewygodnych, 
-                    sztywnych scrubów, które rozcinały się pod pachami i nie miały miejsca na długopis, notatnik ani stetoskop. 
+                    sztywnych scrubsów, które rozcinały się pod pachami i nie miały miejsca na długopis, notatnik ani stetoskop. 
                     Wypiłyśmy wtedy za dużo kawy i... założyłyśmy własną markę! 🍯
                 </p>
                 <p style="margin-top:16px; line-height:1.6;">
@@ -145,9 +145,9 @@
                     nawet podczas 12-godzinnego dyżuru.
                 </p>
                 <div style="display: flex; gap: 20px; margin-top: 32px; flex-wrap: wrap;">
-                    <div><i class="fas fa-check-circle" style="color:var(--honey);"></i> 5000+ zadowolonych studentek</div>
-                    <div><i class="fas fa-check-circle" style="color:var(--honey);"></i> Szyte w Polsce</div>
-                    <div><i class="fas fa-check-circle" style="color:var(--honey);"></i> Bawełna premium Oeko-Tex</div>
+                    <div><i class="fas fa-check-circle" style="color:var(--honey);"></i> 1000+ zadowolonych studentek</div>
+                    <div><i class="fas fa-check-circle" style="color:var(--honey);"></i> Projektowane w Polsce</div>
+                    <div><i class="fas fa-check-circle" style="color:var(--honey);"></i> Materiały premium</div>
                 </div>
             </div>
         </div>
@@ -196,7 +196,7 @@
     </section>
 
     <!-- Newsletter -->
-    <div class="container"><div class="newsletter-box"><h3 style="color:var(--brown);">🍯 Zapisz się do newslettera</h3><p>Otrzymaj kod STUDENTKA10 z -10% na pierwsze zamówienie!</p><div style="display:flex; gap:12px; justify-content:center; margin-top:20px; flex-wrap:wrap;"><input type="email" id="newsEmail" placeholder="Twój e-mail" style="padding:12px 20px; border-radius:40px; border:none; width:280px;"><button id="newsletterBtn" class="btn-primary">Zapisuję się</button></div></div></div>
+    <div class="container"><div class="newsletter-box"><h3 style="color:var(--brown);">🍯 Zapisz się do newslettera</h3><p>Otrzymaj kod zniżkowy z -10% na pierwsze zamówienie!</p><div style="display:flex; gap:12px; justify-content:center; margin-top:20px; flex-wrap:wrap;"><input type="email" id="newsEmail" placeholder="Twój e-mail" style="padding:12px 20px; border-radius:40px; border:none; width:280px;"><button id="newsletterBtn" class="btn-primary">Zapisuję się</button></div></div></div>
 
     <!-- FAQ -->
     <section id="faq"><div class="container"><h2>❓ Najczęściej pytacie</h2><div id="faqAccordion"></div></div></section>
@@ -205,7 +205,7 @@
     <section id="contact"><div class="container"><h2>📱 Bądźmy w kontakcie</h2><p><i class="fab fa-instagram" style="color:var(--honey);"></i> @scrubee_pl &nbsp;|&nbsp; <i class="fab fa-tiktok"></i> @scrubee &nbsp;|&nbsp; <i class="fas fa-envelope"></i> hello@scrubee.pl</p><p style="margin-top:16px;">💬 Odpowiadamy w ciągu 2h! Jesteśmy tu dla Ciebie.</p></div></section>
 </main>
 
-<footer><div class="container"><div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px;"><div>© 2025 Scrubee – stworzone przez studentki, dla studentek medycyny</div><div><i class="fab fa-cc-visa"></i> <i class="fab fa-paypal"></i> <i class="fas fa-box"></i> InPost | 🇵🇱 Szyte w Polsce</div></div></div></footer>
+<footer><div class="container"><div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px;"><div>© 2025 Scrubee – stworzone przez studentki, dla studentek medycyny</div><div><i class="fab fa-cc-visa"></i> <i class="fab fa-paypal"></i> <i class="fas fa-box"></i> InPost | 🇵🇱 Projektowane w Polsce</div></div></div></footer>
 
 <!-- Modale -->
 <div id="cartModal" class="modal"><div class="modal-content"><h3>🛒 Twój koszyk</h3><div id="cartItemsList"></div><div id="cartSummary"></div><div style="margin-top:20px; display:flex; gap:10px;"><button id="closeCartBtn" class="btn-primary">Zamknij</button><button id="checkoutBtn" class="btn-primary btn-rose">Zamawiam</button></div></div></div>
@@ -359,7 +359,7 @@
     // Eventy
     document.getElementById('cartIcon').addEventListener('click',()=>{ renderCartModal(); document.getElementById('cartModal').style.display='flex'; });
     document.getElementById('closeCartBtn').addEventListener('click',()=>document.getElementById('cartModal').style.display='none');
-    document.getElementById('checkoutBtn').addEventListener('click',()=>{ alert("🍯 Dziękujemy! Kod STUDENTKA10 został aktywowany."); document.getElementById('cartModal').style.display='none'; });
+    document.getElementById('checkoutBtn').addEventListener('click',()=>{ alert("🍯 Dziękujemy! Kod zniżkowy znajdziesz na e-mailu"); document.getElementById('cartModal').style.display='none'; });
     document.getElementById('goToShopBtn').addEventListener('click',()=>document.getElementById('shop').scrollIntoView({behavior:'smooth'}));
     document.getElementById('adminPanelBtn').addEventListener('click',showAdminPanel);
     document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
