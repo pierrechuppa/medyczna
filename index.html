@@ -50,8 +50,7 @@
             .nav-links.open { display: flex; }
             .hamburger { display: block; }
         }
-        /* Hero */
-        .hero { position: relative; min-height: 90vh; display: flex; align-items: center; background: linear-gradient(135deg, #fef5ef 0%, #fce8e4 100%); overflow: hidden; }
+        .hero { min-height: 90vh; display: flex; align-items: center; background: linear-gradient(135deg, #fef5ef 0%, #fce8e4 100%); overflow: hidden; }
         .hero-grid { display: flex; flex-wrap: wrap; align-items: center; gap: 48px; }
         .hero-text { flex: 1; }
         .hero-badge { background: var(--honey); color: var(--brown); display: inline-block; padding: 5px 14px; border-radius: 40px; font-size: 0.75rem; font-weight: 700; margin-bottom: 20px; }
@@ -62,11 +61,10 @@
         .color-picker { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
         .color-btn { width: 44px; height: 44px; border-radius: 50%; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.1s; }
         .color-btn.active { transform: scale(1.1); border: 2px solid var(--honey); }
-        /* Karty */
-        .social-grid, .products-grid, .courses-grid, .stats-grid, .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 28px; }
-        .social-card, .stat-card, .blog-card { background: white; border-radius: 24px; padding: 20px; text-align: center; box-shadow: var(--shadow-sm); border: 1px solid #f0e4dd; transition: var(--transition); }
-        .social-card:hover, .stat-card:hover, .blog-card:hover { transform: translateY(-4px); }
-        .social-card img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; }
+        .social-grid, .products-grid, .courses-grid, .stats-grid, .blog-grid, .founders-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 28px; }
+        .social-card, .stat-card, .blog-card, .founder-card { background: white; border-radius: 24px; padding: 20px; text-align: center; box-shadow: var(--shadow-sm); border: 1px solid #f0e4dd; transition: var(--transition); }
+        .social-card:hover, .stat-card:hover, .blog-card:hover, .founder-card:hover { transform: translateY(-4px); }
+        .social-card img, .founder-card img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; }
         .product-card { background: white; border-radius: 24px; padding: 18px; box-shadow: var(--shadow-sm); border: 1px solid #f0e4dd; transition: var(--transition); }
         .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
         .product-card img { width: 100%; border-radius: 18px; height: 220px; object-fit: cover; }
@@ -80,8 +78,10 @@
         .faq-answer { display: none; padding-bottom: 16px; color: #7a5a4a; }
         footer { background: #2d2a24; color: #d4c5bc; padding: 40px 0; }
         .trust-badge i { font-size: 1.6rem; margin-right: 12px; color: var(--honey); }
+        .story-box { background: linear-gradient(135deg, #fef5ef 0%, #fce8e4 100%); border-radius: 32px; padding: 48px; margin-top: 40px; }
+        .quote { font-size: 1.2rem; font-style: italic; color: var(--brown); border-left: 4px solid var(--honey); padding-left: 24px; margin: 24px 0; }
         .newsletter-box { background: var(--rose); border-radius: 32px; padding: 40px; text-align: center; margin-top: 40px; }
-        @media (max-width: 768px) { .hero-text h1 { font-size: 2.2rem; } }
+        @media (max-width: 768px) { .hero-text h1 { font-size: 2.2rem; } .story-box { padding: 28px; } }
     </style>
 </head>
 <body>
@@ -94,9 +94,9 @@
             <a href="#" data-section="home">Start</a>
             <a href="#" data-section="shop">Sklep</a>
             <a href="#" id="coursesPageLink" class="courses-link"><i class="fas fa-graduation-cap"></i> Kursy</a>
+            <a href="#" data-section="story">Nasza historia</a>
             <a href="#" data-section="community">#ScrubeeGirls</a>
             <a href="#" data-section="faq">FAQ</a>
-            <a href="#" data-section="contact">Kontakt</a>
             <div class="cart-icon" id="cartIcon"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cartCount">0</span></div>
         </div>
     </div>
@@ -109,7 +109,7 @@
             <div class="hero-text">
                 <div class="hero-badge"><i class="fas fa-bug"></i> #ScrubeeGirls</div>
                 <h1>Scruby tak słodkie jak <br><span style="color:var(--honey)">Ty 🍯</span></h1>
-                <p>Czekoladowe i pudroworóżowe scruby, które pokochasz. Miękkie jak miód, wygodne na długie dyżury i zajęcia w klinice.</p>
+                <p>Stworzone przez studentki, dla studentek. Czekoladowe i pudroworóżowe scruby, które pokochasz.</p>
                 <button class="btn-primary" id="goToShopBtn">🛍️ Poznaj kolekcję</button>
                 <button class="btn-rose" id="coursesBtnHero" style="margin-left:12px;"><i class="fas fa-graduation-cap"></i> Darmowe kursy</button>
             </div>
@@ -121,19 +121,51 @@
         </div>
     </section>
 
-    <!-- Statystyki / Dlaczego my -->
+    <!-- NASZA HISTORIA - KLUCZOWA SEKCJA! -->
+    <section id="story">
+        <div class="container">
+            <h2>🐝 Nasza historia</h2>
+            <div class="story-box">
+                <div class="founders-grid" id="foundersGrid"></div>
+                <div class="quote">
+                    <i class="fas fa-quote-left" style="color:var(--honey); margin-right:12px;"></i> 
+                    Zaczęłyśmy od wiecznego marudzenia, że scruby ze sklepów są albo drogie, albo niewygodne. 
+                    Postanowiłyśmy działać – i tak narodził się Scrubee. Dziś szyjemy dla tysięcy dziewczyn w Polsce!
+                </div>
+                <p style="margin-top:24px; font-size:1.05rem; line-height:1.6;">
+                    <strong>Scrubee</strong> to dwie przyjaciółki – <strong>Zosia i Martyna</strong>, studentki 4. roku medycyny. 
+                    Po jednym szczególnie ciężkim dyżurze na SORze stwierdziłyśmy, że nie możemy dłużej nosić niewygodnych, 
+                    sztywnych scrubów, które rozcinały się pod pachami i nie miały miejsca na długopis, notatnik ani stetoskop. 
+                    Wypiłyśmy wtedy za dużo kawy i... założyłyśmy własną markę! 🍯
+                </p>
+                <p style="margin-top:16px; line-height:1.6;">
+                    Dziś Scrubee to nie tylko ubrania – to <strong>społeczność przyszłych lekarek</strong>, które wiedzą, że wygoda 
+                    i styl mogą iść w parze. Szyjemy w Łodzi, używamy bawełny premium, a każdy krój konsultujemy z naszymi 
+                    obserwatorkami na Instagramie. Bo wierzymy, że <strong>studentka medycyny zasługuje na coś słodkiego</strong> – 
+                    nawet podczas 12-godzinnego dyżuru.
+                </p>
+                <div style="display: flex; gap: 20px; margin-top: 32px; flex-wrap: wrap;">
+                    <div><i class="fas fa-check-circle" style="color:var(--honey);"></i> 5000+ zadowolonych studentek</div>
+                    <div><i class="fas fa-check-circle" style="color:var(--honey);"></i> Szyte w Polsce</div>
+                    <div><i class="fas fa-check-circle" style="color:var(--honey);"></i> Bawełna premium Oeko-Tex</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statystyki -->
     <section style="background:#fef5ef;"><div class="container"><h2>🐝 Scrubee w liczbach</h2><div class="stats-grid" id="statsGrid"></div></div></section>
 
     <!-- Co mówią dziewczyny (UGC) -->
     <section><div class="container"><h2>📸 #ScrubeeGirls</h2><div class="social-grid" id="socialGrid"></div></div></section>
 
-    <!-- Dlaczego my - szczegółowo -->
+    <!-- Dlaczego my -->
     <section style="background:#fef5ef;"><div class="container"><h2>Dlaczego Scrubee? 🍯</h2><div class="products-grid" id="featuresGrid"></div></div></section>
 
     <!-- Bestsellery -->
     <section><div class="container"><h2>🔥 Ulubione przez studentki</h2><div id="bestsellersContainer" class="products-grid"></div></div></section>
 
-    <!-- Blog / Wskazówki dla studentek -->
+    <!-- Blog -->
     <section style="background:#fef5ef;"><div class="container"><h2>📖 Wskazówki dla przyszłych lekarek</h2><div class="blog-grid" id="blogGrid"></div></div></section>
 
     <!-- Sklep -->
@@ -148,17 +180,17 @@
         <div id="shopProductsGrid" class="products-grid"></div>
     </div></section>
 
-    <!-- Sekcja Kursów (widoczna na stronie głównej) -->
+    <!-- Sekcja Kursów -->
     <section id="coursesSection" style="background: linear-gradient(135deg, #fef5ef 0%, #fce8e4 100%);">
         <div class="container">
             <h2>📚 Darmowe webinary i kursy</h2>
-            <p style="font-size:1.1rem; margin-bottom:32px; color:#7a5a4a;">Przygotowaliśmy dla Ciebie kursy, które pomogą Ci w studiowaniu i przyszłej pracy. <strong>Więcej kursów znajdziesz na dedykowanej stronie!</strong></p>
+            <p style="font-size:1.1rem; margin-bottom:32px; color:#7a5a4a;">Przygotowałyśmy dla Ciebie kursy, które pomogą Ci w studiowaniu i przyszłej pracy. <strong>Więcej kursów znajdziesz na dedykowanej stronie!</strong></p>
             <div id="coursesContainer" class="courses-grid"></div>
             <div style="text-align: center; margin-top: 40px;">
                 <button id="coursesPageBtnMain" class="btn-honey"><i class="fas fa-arrow-right"></i> Zobacz wszystkie kursy</button>
             </div>
             <div style="margin-top:32px; text-align:center;">
-                <button id="adminPanelBtn" class="btn-outline" style="background:transparent;"><i class="fas fa-user-shield"></i> Panel Admina (dodaj produkt/kurs)</button>
+                <button id="adminPanelBtn" class="btn-outline" style="background:transparent;"><i class="fas fa-user-shield"></i> Panel Admina</button>
             </div>
         </div>
     </section>
@@ -173,14 +205,14 @@
     <section id="contact"><div class="container"><h2>📱 Bądźmy w kontakcie</h2><p><i class="fab fa-instagram" style="color:var(--honey);"></i> @scrubee_pl &nbsp;|&nbsp; <i class="fab fa-tiktok"></i> @scrubee &nbsp;|&nbsp; <i class="fas fa-envelope"></i> hello@scrubee.pl</p><p style="margin-top:16px;">💬 Odpowiadamy w ciągu 2h! Jesteśmy tu dla Ciebie.</p></div></section>
 </main>
 
-<footer><div class="container"><div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px;"><div>© 2025 Scrubee – słodka wygoda dla studentek medycyny</div><div><i class="fab fa-cc-visa"></i> <i class="fab fa-paypal"></i> <i class="fas fa-box"></i> InPost | 🇵🇱 Szyte w Polsce</div></div></div></footer>
+<footer><div class="container"><div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px;"><div>© 2025 Scrubee – stworzone przez studentki, dla studentek medycyny</div><div><i class="fab fa-cc-visa"></i> <i class="fab fa-paypal"></i> <i class="fas fa-box"></i> InPost | 🇵🇱 Szyte w Polsce</div></div></div></footer>
 
 <!-- Modale -->
 <div id="cartModal" class="modal"><div class="modal-content"><h3>🛒 Twój koszyk</h3><div id="cartItemsList"></div><div id="cartSummary"></div><div style="margin-top:20px; display:flex; gap:10px;"><button id="closeCartBtn" class="btn-primary">Zamknij</button><button id="checkoutBtn" class="btn-primary btn-rose">Zamawiam</button></div></div></div>
 <div id="quickViewModal" class="modal"><div class="modal-content" id="quickViewContent"></div></div>
 
 <script>
-    // ========== DANE PRODUKTÓW ==========
+    // ========== DANE ==========
     let products = [
         { id: 1, name: "Scrubee Chocolate", price: 199, color: "Czekoladowy", size: ["XS","S","M","L"], gender: "damskie", image: "https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop", bestseller: true, badge: "🍫" },
         { id: 2, name: "Scrubee Rose", price: 199, color: "Pudrowy róż", size: ["XS","S","M","L"], gender: "damskie", image: "https://images.pexels.com/photos/5215000/pexels-photo-5215000.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop", bestseller: true, badge: "🌸" },
@@ -190,13 +222,15 @@
         { id: 6, name: "Kapcie Bee Soft", price: 89, color: "Pudrowy róż", size: ["36","37","38","39"], gender: "damskie", image: "https://images.pexels.com/photos/5215012/pexels-photo-5215012.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop", bestseller: true }
     ];
     
-    // KURSÓW WIĘCEJ
     let courses = [
-        { id: 101, title: "Jak przetrwać staż? – webinar", duration: "2h", price: 0, level: "darmowy", badge: "🎓", description: "Praktyczne wskazówki od rezydentów" },
+        { id: 101, title: "Jak przetrwać staż? – webinar", duration: "2h", price: 0, level: "darmowy", badge: "🎓", description: "Praktyczne wskazówki od rezydentek" },
         { id: 102, title: "EKG dla początkujących", duration: "6h", price: 99, level: "podstawowy", badge: "💓", description: "Naucz się czytać EKG w weekend" },
-        { id: 103, title: "Pielęgnacja skóry na dyżurze", duration: "3h", price: 0, level: "darmowy", badge: "✨", description: "Jak dbać o cerę przy 12h zmianach" },
-        { id: 104, title: "Aseptyka i antyseptyka", duration: "4h", price: 0, level: "podstawowy", badge: "🧼", description: "Podstawy dla młodych stażystek" },
-        { id: 105, title: "Komunikacja z pacjentem", duration: "5h", price: 49, level: "średni", badge: "💬", description: "Jak budować zaufanie" }
+        { id: 103, title: "Pielęgnacja skóry na dyżurze", duration: "3h", price: 0, level: "darmowy", badge: "✨", description: "Jak dbać o cerę przy 12h zmianach" }
+    ];
+    
+    let founders = [
+        { name: "Zosia", role: "Współzałożycielka, studentka 4 roku", img: "https://randomuser.me/api/portraits/women/68.jpg", quote: "Bez wygodnych scrubów ani rusz na SOR!" },
+        { name: "Martyna", role: "Współzałożycielka, studentka 4 roku", img: "https://randomuser.me/api/portraits/women/44.jpg", quote: "Stworzyłyśmy markę, której same potrzebowałyśmy." }
     ];
     
     let cart = JSON.parse(localStorage.getItem('scrubee_cart')) || [];
@@ -205,7 +239,7 @@
         { q: "Mam zniżkę dla studentki?", a: "Oczywiście! Kod STUDENTKA10 daje -10% na pierwsze zamówienie." },
         { q: "Czy mogę zwrócić, jeśli nie pasuje?", a: "Tak, 30 dni na zwrot – bez problemu 💕" },
         { q: "Jak dobrać rozmiar?", a: "Mamy tabelę rozmiarów i pomagamy na czacie!" },
-        { q: "Czy wysyłacie za granicę?", a: "Na razie tylko Polska, ale pracujemy nad EU!" },
+        { q: "Kto założył Scrubee?", a: "Dwie studentki medycyny – Zosia i Martyna! 💪" },
         { q: "Czy kursy są certyfikowane?", a: "Tak, po ukończeniu otrzymujesz certyfikat." }
     ];
     
@@ -234,7 +268,7 @@
     function renderProducts(containerId, productArray) {
         const container = document.getElementById(containerId);
         if(!container) return;
-        container.innerHTML = productArray.map(p => `<div class="product-card"><img src="${p.image}" alt="${p.name}"><h3>${p.badge ? p.badge : '🍯'} ${p.name}</h3><div class="price">${p.price} zł</div><div>${p.size?.length ? `<select class="size-select" data-id="${p.id}">${p.size.map(s=>`<option>${s}</option>`).join('')}</select>` : 'uniwersalny'}</div><div style="margin-top:12px;"><button class="add-to-cart-btn btn-primary" data-id="${p.id}" style="padding:6px 14px;">➕ Dodaj</button><button class="quick-view-btn" data-id="${p.id}" style="margin-left:6px; background:transparent; border:1px solid var(--rose); padding:6px 12px; border-radius:40px;">👁️</button></div></div>`).join('');
+        container.innerHTML = productArray.map(p => `<div class="product-card"><img src="${p.image}" alt="${p.name}"><h3>${p.badge} ${p.name}</h3><div class="price">${p.price} zł</div><div>${p.size?.length ? `<select class="size-select" data-id="${p.id}">${p.size.map(s=>`<option>${s}</option>`).join('')}</select>` : 'uniwersalny'}</div><div style="margin-top:12px;"><button class="add-to-cart-btn btn-primary" data-id="${p.id}" style="padding:6px 14px;">➕ Dodaj</button><button class="quick-view-btn" data-id="${p.id}" style="margin-left:6px; background:transparent; border:1px solid var(--rose); padding:6px 12px; border-radius:40px;">👁️</button></div></div>`).join('');
         document.querySelectorAll('.add-to-cart-btn').forEach(btn => btn.addEventListener('click', () => { let id = parseInt(btn.dataset.id); let prod = products.find(p=>p.id===id); let sizeSelect = btn.closest('.product-card')?.querySelector('.size-select'); let size = sizeSelect ? sizeSelect.value : 'uniwersalny'; let existing = cart.find(i=>i.id===id && i.selectedSize===size); if(existing) existing.quantity++; else cart.push({...prod, quantity:1, selectedSize: size}); saveCart(); alert(`✨ ${prod.name} w koszyku!`); }));
         document.querySelectorAll('.quick-view-btn').forEach(btn => btn.addEventListener('click', () => { let prod = products.find(p=>p.id==btn.dataset.id); document.getElementById('quickViewContent').innerHTML = `<h3>${prod.name}</h3><img src="${prod.image}" width="180" style="border-radius:20px;"><p>${prod.price} zł</p><p>Rozmiary: ${prod.size?.join(', ') || 'uniwersalny'}</p><button id="closeQuick" class="btn-primary">Zamknij</button>`; document.getElementById('quickViewModal').style.display='flex'; document.getElementById('closeQuick').onclick = () => document.getElementById('quickViewModal').style.display='none'; }));
     }
@@ -256,10 +290,11 @@
     }
     
     function renderCourses() { 
-        document.getElementById('coursesContainer').innerHTML = courses.slice(0,3).map(c => `<div class="product-card"><h3>${c.badge} ${c.title}</h3><p>⏱️ ${c.duration} | 🎓 ${c.level}</p><p style="font-size:0.85rem; color:#7a5a4a;">${c.description}</p><div class="price">${c.price === 0 ? 'DARMOWY 🎁' : c.price+' zł'}</div><button class="enroll-btn" style="background:var(--rose); border:none; padding:8px 16px; border-radius:40px;">Zapisuję się</button></div>`).join(''); 
+        document.getElementById('coursesContainer').innerHTML = courses.map(c => `<div class="product-card"><h3>${c.badge} ${c.title}</h3><p>⏱️ ${c.duration} | 🎓 ${c.level}</p><p style="font-size:0.85rem; color:#7a5a4a;">${c.description}</p><div class="price">${c.price === 0 ? 'DARMOWY 🎁' : c.price+' zł'}</div><button class="enroll-btn" style="background:var(--rose); border:none; padding:8px 16px; border-radius:40px;">Zapisuję się</button></div>`).join(''); 
         document.querySelectorAll('.enroll-btn').forEach(btn => btn.addEventListener('click', () => alert('✅ Zapisano! Link wyślemy na maila.'))); 
     }
     
+    function renderFounders() { document.getElementById('foundersGrid').innerHTML = founders.map(f => `<div class="founder-card"><img src="${f.img}"><h3>${f.name}</h3><p style="color:var(--honey); font-weight:600;">${f.role}</p><p style="margin-top:8px;">"${f.quote}"</p></div>`).join(''); }
     function renderBestsellers() { renderProducts('bestsellersContainer', products.filter(p=>p.bestseller)); }
     function renderSocial() { document.getElementById('socialGrid').innerHTML = socialPosts.map(s => `<div class="social-card"><img src="${s.img}"><p><strong>@${s.name}</strong></p><p>${s.text}</p><i class="fas fa-heart" style="color:var(--rose-dark);"></i> 234 likes</div>`).join(''); }
     function renderFeatures() { document.getElementById('featuresGrid').innerHTML = [["fa-bug","Polska bawełna premium"],["fa-graduation-cap","Zniżka studencka -10%"],["fa-truck-fast","Dostawa do uczelni"],["fa-hand-holding-heart","Zwrot 30 dni"]].map(f=>`<div class="product-card"><i class="fas ${f[0]}" style="font-size:2rem; color:var(--honey)"></i><h3>${f[1]}</h3></div>`).join(''); }
@@ -316,12 +351,9 @@
         document.querySelectorAll('.color-btn')[0]?.classList.add('active'); 
     }
 
-    // Funkcja przekierowania na stronę kursów (TU BĘDZIESZ MÓGŁ WSTAWIĆ SWÓJ LINK)
     function goToCoursesPage() {
         // 🔽🔽🔽 TUTAJ WSTAW SWÓJ LINK DO STRONY Z KURSAMI 🔽🔽🔽
         window.location.href = "https://twoja-strona-kursow.pl"; // ZMIEŃ NA SWÓJ LINK!
-        // Alternatywnie, jeśli chcesz otworzyć w nowej karcie:
-        // window.open("https://twoja-strona-kursow.pl", "_blank");
     }
 
     // Eventy
@@ -338,7 +370,6 @@
     document.getElementById('sortSelect')?.addEventListener('change',renderShopWithFilters);
     document.getElementById('newsletterBtn')?.addEventListener('click',()=>{ let email = document.getElementById('newsEmail')?.value; if(email && email.includes('@')) { alert("📧 Kod STUDENTKA10 wysłany! Sprawdź spam. 🍯"); document.getElementById('newsEmail').value = ''; } else alert("Podaj poprawny email!"); });
     
-    // Przekierowania na stronę kursów
     document.getElementById('coursesPageLink')?.addEventListener('click', (e) => { e.preventDefault(); goToCoursesPage(); });
     document.getElementById('coursesPageBtnMain')?.addEventListener('click', () => { goToCoursesPage(); });
     document.getElementById('coursesBtnHero')?.addEventListener('click', () => { goToCoursesPage(); });
@@ -351,7 +382,7 @@
         if(document.getElementById('navLinks').classList.contains('open')) document.getElementById('navLinks').classList.remove('open'); 
     }));
 
-    function init() { initColorPicker(); renderStats(); renderSocial(); renderFeatures(); renderBestsellers(); renderCourses(); renderBlog(); renderFAQ(); renderShopWithFilters(); updateCartCount(); }
+    function init() { initColorPicker(); renderFounders(); renderStats(); renderSocial(); renderFeatures(); renderBestsellers(); renderCourses(); renderBlog(); renderFAQ(); renderShopWithFilters(); updateCartCount(); }
     init();
 </script>
 </body>
