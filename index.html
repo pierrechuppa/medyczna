@@ -3,77 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>LuminaMed | Odzież medyczna dla studentów</title>
+    <title>Scrubee | Słodka wygoda dla studentek medycyny</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #ffffff; color: #1a2c3e; scroll-behavior: smooth; line-height: 1.5; }
+        body { font-family: 'Inter', sans-serif; background: #fffaf7; color: #2d2a24; scroll-behavior: smooth; line-height: 1.5; }
         :root {
-            --navy: #0a3d62;
-            --mint: #00b894;
-            --mint-dark: #00997a;
-            --gray-light: #f9fafb;
-            --gray-border: #eef2f6;
+            --brown: #5c3a2e;
+            --rose: #e8c4c0;
+            --rose-dark: #d4a5a0;
+            --cream: #fef5ef;
+            --honey: #f5c542;
             --shadow-sm: 0 8px 20px rgba(0,0,0,0.03);
             --shadow-md: 0 12px 30px rgba(0,0,0,0.08);
             --transition: all 0.3s ease;
         }
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
         section { padding: 70px 0; }
-        h2 { font-size: 2rem; font-weight: 700; color: var(--navy); margin-bottom: 40px; letter-spacing: -0.3px; }
-        h2:after { content: ''; display: block; width: 60px; height: 3px; background: var(--mint); margin-top: 12px; border-radius: 4px; }
-        .btn-primary { background: var(--navy); color: white; border: none; padding: 12px 28px; border-radius: 40px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: var(--transition); box-shadow: var(--shadow-sm); }
-        .btn-primary:hover { background: #0c4d6e; transform: translateY(-2px); }
-        .btn-mint { background: var(--mint); color: white; }
-        .btn-mint:hover { background: var(--mint-dark); }
-        .btn-outline { background: transparent; border: 1.5px solid var(--navy); color: var(--navy); }
-        .btn-outline:hover { background: var(--navy); color: white; }
-        .header { position: sticky; top: 0; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid var(--gray-border); }
+        h2 { font-size: 2rem; font-weight: 700; color: var(--brown); margin-bottom: 40px; letter-spacing: -0.3px; }
+        h2:after { content: ''; display: block; width: 60px; height: 3px; background: var(--honey); margin-top: 12px; border-radius: 4px; }
+        h3 { font-size: 1.3rem; color: var(--brown); margin-bottom: 12px; }
+        .btn-primary { background: var(--brown); color: white; border: none; padding: 12px 28px; border-radius: 40px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: var(--transition); box-shadow: var(--shadow-sm); }
+        .btn-primary:hover { background: #7a4d3a; transform: translateY(-2px); }
+        .btn-rose { background: var(--rose); color: var(--brown); border: none; padding: 12px 28px; border-radius: 40px; font-weight: 600; cursor: pointer; transition: var(--transition); }
+        .btn-rose:hover { background: var(--rose-dark); transform: translateY(-2px); }
+        .btn-outline { background: transparent; border: 1.5px solid var(--brown); color: var(--brown); }
+        .btn-outline:hover { background: var(--brown); color: white; }
+        .btn-honey { background: var(--honey); color: var(--brown); border: none; padding: 12px 28px; border-radius: 40px; font-weight: 700; cursor: pointer; }
+        .btn-honey:hover { background: #e6b33e; transform: translateY(-2px); }
+        .header { position: sticky; top: 0; background: rgba(255,250,247,0.96); backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid #f0e4dd; }
         .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; max-width: 1400px; margin: 0 auto; }
-        .logo { font-size: 1.7rem; font-weight: 800; color: var(--navy); }
-        .logo span { color: var(--mint); }
+        .logo { display: flex; align-items: center; gap: 8px; font-size: 1.6rem; font-weight: 800; color: var(--brown); }
+        .logo i { font-size: 1.8rem; color: var(--honey); }
+        .logo span { color: var(--honey); }
         .nav-links { display: flex; gap: 28px; align-items: center; }
-        .nav-links a { text-decoration: none; font-weight: 500; color: #2c3e50; transition: color 0.2s; }
-        .nav-links a:hover { color: var(--mint); }
+        .nav-links a { text-decoration: none; font-weight: 500; color: #4a3a32; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--honey); }
+        .courses-link { background: var(--honey); padding: 6px 16px; border-radius: 40px; color: var(--brown) !important; font-weight: 700 !important; }
+        .courses-link:hover { background: #e6b33e; transform: scale(1.02); }
         .cart-icon { position: relative; font-size: 1.3rem; cursor: pointer; }
-        .cart-count { position: absolute; top: -10px; right: -12px; background: var(--mint); color: white; font-size: 0.65rem; font-weight: bold; border-radius: 30px; padding: 2px 6px; min-width: 18px; text-align: center; }
+        .cart-count { position: absolute; top: -10px; right: -12px; background: var(--honey); color: var(--brown); font-size: 0.65rem; font-weight: bold; border-radius: 30px; padding: 2px 6px; min-width: 18px; text-align: center; }
         .hamburger { display: none; font-size: 1.6rem; cursor: pointer; }
         @media (max-width: 850px) {
             .nav-links { display: none; flex-direction: column; background: white; position: absolute; top: 65px; left: 0; width: 100%; padding: 24px; box-shadow: var(--shadow-md); gap: 18px; z-index: 999; }
             .nav-links.open { display: flex; }
             .hamburger { display: block; }
         }
-        /* Hero - młodzieżowy, dynamiczny */
-        .hero { position: relative; min-height: 90vh; display: flex; align-items: center; background: linear-gradient(135deg, #f0f7ff 0%, #e6f5ef 100%); overflow: hidden; }
+        /* Hero */
+        .hero { position: relative; min-height: 90vh; display: flex; align-items: center; background: linear-gradient(135deg, #fef5ef 0%, #fce8e4 100%); overflow: hidden; }
         .hero-grid { display: flex; flex-wrap: wrap; align-items: center; gap: 48px; }
         .hero-text { flex: 1; }
-        .hero-badge { background: var(--mint); color: white; display: inline-block; padding: 5px 14px; border-radius: 40px; font-size: 0.75rem; font-weight: 600; margin-bottom: 20px; }
-        .hero-text h1 { font-size: 3rem; font-weight: 800; color: var(--navy); margin-bottom: 16px; line-height: 1.2; }
-        .hero-text p { font-size: 1.1rem; color: #4a627a; margin-bottom: 28px; max-width: 500px; }
+        .hero-badge { background: var(--honey); color: var(--brown); display: inline-block; padding: 5px 14px; border-radius: 40px; font-size: 0.75rem; font-weight: 700; margin-bottom: 20px; }
+        .hero-text h1 { font-size: 3rem; font-weight: 800; color: var(--brown); margin-bottom: 16px; line-height: 1.2; }
+        .hero-text p { font-size: 1.1rem; color: #7a5a4a; margin-bottom: 28px; max-width: 500px; }
         .hero-model { flex: 1; background: white; border-radius: 32px; padding: 20px; box-shadow: var(--shadow-md); text-align: center; }
         .hero-model img { width: 100%; max-width: 320px; border-radius: 24px; transition: opacity 0.3s; }
         .color-picker { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
-        .color-btn { width: 36px; height: 36px; border-radius: 50%; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.1s; }
-        .color-btn.active { transform: scale(1.1); border: 2px solid var(--navy); }
-        /* Karty społecznościowe */
-        .social-grid, .products-grid, .courses-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 28px; }
-        .social-card { background: white; border-radius: 24px; padding: 20px; text-align: center; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-border); transition: var(--transition); }
-        .social-card:hover { transform: translateY(-4px); }
+        .color-btn { width: 44px; height: 44px; border-radius: 50%; cursor: pointer; border: 2px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: 0.1s; }
+        .color-btn.active { transform: scale(1.1); border: 2px solid var(--honey); }
+        /* Karty */
+        .social-grid, .products-grid, .courses-grid, .stats-grid, .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 28px; }
+        .social-card, .stat-card, .blog-card { background: white; border-radius: 24px; padding: 20px; text-align: center; box-shadow: var(--shadow-sm); border: 1px solid #f0e4dd; transition: var(--transition); }
+        .social-card:hover, .stat-card:hover, .blog-card:hover { transform: translateY(-4px); }
         .social-card img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 12px; }
-        .product-card { background: white; border-radius: 24px; padding: 18px; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-border); transition: var(--transition); }
+        .product-card { background: white; border-radius: 24px; padding: 18px; box-shadow: var(--shadow-sm); border: 1px solid #f0e4dd; transition: var(--transition); }
         .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
         .product-card img { width: 100%; border-radius: 18px; height: 220px; object-fit: cover; }
-        .price { font-weight: 700; font-size: 1.2rem; color: var(--navy); margin: 10px 0; }
-        .filters-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; background: var(--gray-light); padding: 16px 20px; border-radius: 50px; align-items: center; }
-        .filter-group select, .filter-group input { padding: 8px 16px; border-radius: 30px; border: 1px solid var(--gray-border); font-family: inherit; background: white; }
+        .price { font-weight: 700; font-size: 1.2rem; color: var(--brown); margin: 10px 0; }
+        .filters-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; background: #fef5ef; padding: 16px 20px; border-radius: 50px; align-items: center; }
+        .filter-group select, .filter-group input { padding: 8px 16px; border-radius: 30px; border: 1px solid #f0e4dd; font-family: inherit; background: white; }
         .modal { display: none; position: fixed; top:0;left:0;width:100%;height:100%; background: rgba(0,0,0,0.4); z-index: 2000; justify-content: center; align-items: center; }
         .modal-content { background: white; max-width: 500px; width: 90%; border-radius: 32px; padding: 24px; max-height: 80vh; overflow-y: auto; }
-        .faq-item { border-bottom: 1px solid var(--gray-border); margin-bottom: 12px; }
+        .faq-item { border-bottom: 1px solid #f0e4dd; margin-bottom: 12px; }
         .faq-question { width: 100%; background: none; border: none; padding: 16px 0; font-weight: 600; font-size: 1rem; text-align: left; display: flex; justify-content: space-between; cursor: pointer; }
-        .faq-answer { display: none; padding-bottom: 16px; color: #5a6e82; }
-        footer { background: #0a1c2a; color: #a0b3c9; padding: 40px 0; }
-        .trust-badge i { font-size: 1.6rem; margin-right: 12px; color: var(--mint); }
+        .faq-answer { display: none; padding-bottom: 16px; color: #7a5a4a; }
+        footer { background: #2d2a24; color: #d4c5bc; padding: 40px 0; }
+        .trust-badge i { font-size: 1.6rem; margin-right: 12px; color: var(--honey); }
+        .newsletter-box { background: var(--rose); border-radius: 32px; padding: 40px; text-align: center; margin-top: 40px; }
         @media (max-width: 768px) { .hero-text h1 { font-size: 2.2rem; } }
     </style>
 </head>
@@ -81,13 +88,13 @@
 
 <div class="header">
     <div class="nav-container">
-        <div class="logo">Lumina<span>Med</span></div>
+        <div class="logo"><i class="fas fa-bug"></i> Scrub<span>ee</span></div>
         <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
         <div class="nav-links" id="navLinks">
             <a href="#" data-section="home">Start</a>
             <a href="#" data-section="shop">Sklep</a>
-            <a href="#" data-section="courses">Kursy</a>
-            <a href="#" data-section="community">#StudentLife</a>
+            <a href="#" id="coursesPageLink" class="courses-link"><i class="fas fa-graduation-cap"></i> Kursy</a>
+            <a href="#" data-section="community">#ScrubeeGirls</a>
             <a href="#" data-section="faq">FAQ</a>
             <a href="#" data-section="contact">Kontakt</a>
             <div class="cart-icon" id="cartIcon"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cartCount">0</span></div>
@@ -96,97 +103,138 @@
 </div>
 
 <main>
-    <!-- Hero Section - młodzieżowa energia -->
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container hero-grid">
             <div class="hero-text">
-                <div class="hero-badge"><i class="fas fa-stethoscope"></i> #MedicalStudentLife</div>
-                <h1>Scruby, które <br><span style="color:var(--mint)">kochają studenci</span> medycyny</h1>
-                <p>Oddychające materiały, polski krój i ceny, które nie bolą. Dołącz do 5000+ przyszłych lekarzy w LuminaMed.</p>
-                <button class="btn-primary" id="goToShopBtn">🛍️ Sprawdź kolekcję</button>
-                <button class="btn-outline btn-primary" style="margin-left:12px; background:transparent;"><i class="fab fa-tiktok"></i> Zobacz nas na TikToku</button>
+                <div class="hero-badge"><i class="fas fa-bug"></i> #ScrubeeGirls</div>
+                <h1>Scruby tak słodkie jak <br><span style="color:var(--honey)">Ty 🍯</span></h1>
+                <p>Czekoladowe i pudroworóżowe scruby, które pokochasz. Miękkie jak miód, wygodne na długie dyżury i zajęcia w klinice.</p>
+                <button class="btn-primary" id="goToShopBtn">🛍️ Poznaj kolekcję</button>
+                <button class="btn-rose" id="coursesBtnHero" style="margin-left:12px;"><i class="fas fa-graduation-cap"></i> Darmowe kursy</button>
             </div>
             <div class="hero-model">
-                <img id="modelImage" src="https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop" alt="studentka w scrubsach">
+                <img id="modelImage" src="https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop" alt="dziewczyna w scrubie">
                 <div class="color-picker" id="colorPicker"></div>
-                <p style="font-size:0.75rem; margin-top:12px;"><i class="fas fa-palette"></i> kliknij w kolor, żeby zmienić styl</p>
+                <p style="font-size:0.75rem; margin-top:12px;"><i class="fas fa-palette"></i> wybierz swój ulubiony kolor</p>
             </div>
         </div>
     </section>
 
-    <!-- Co mówią studenci (UGC) -->
-    <section style="background:var(--gray-light);"><div class="container"><h2>📸 Zobacz, jak to nosimy</h2><div class="social-grid" id="socialGrid"></div></div></section>
+    <!-- Statystyki / Dlaczego my -->
+    <section style="background:#fef5ef;"><div class="container"><h2>🐝 Scrubee w liczbach</h2><div class="stats-grid" id="statsGrid"></div></div></section>
 
-    <!-- Dlaczego my - dla studentów -->
-    <section><div class="container"><h2>Dlaczego my? 🎓</h2><div class="products-grid" id="featuresGrid"></div></div></section>
+    <!-- Co mówią dziewczyny (UGC) -->
+    <section><div class="container"><h2>📸 #ScrubeeGirls</h2><div class="social-grid" id="socialGrid"></div></div></section>
+
+    <!-- Dlaczego my - szczegółowo -->
+    <section style="background:#fef5ef;"><div class="container"><h2>Dlaczego Scrubee? 🍯</h2><div class="products-grid" id="featuresGrid"></div></div></section>
 
     <!-- Bestsellery -->
-    <section style="background:var(--gray-light);"><div class="container"><h2>🔥 Najchętniej wybierane przez studentów</h2><div id="bestsellersContainer" class="products-grid"></div></div></section>
+    <section><div class="container"><h2>🔥 Ulubione przez studentki</h2><div id="bestsellersContainer" class="products-grid"></div></div></section>
+
+    <!-- Blog / Wskazówki dla studentek -->
+    <section style="background:#fef5ef;"><div class="container"><h2>📖 Wskazówki dla przyszłych lekarek</h2><div class="blog-grid" id="blogGrid"></div></div></section>
 
     <!-- Sklep -->
     <section id="shop"><div class="container"><h2>🛒 Sklep – scruby i akcesoria</h2>
         <div class="filters-bar">
             <input type="text" id="searchInput" placeholder="🔍 Szukaj...">
-            <select id="colorFilter"><option value="">Kolor</option><option value="Niebieski">Niebieski</option><option value="Granat">Granat</option><option value="Miętowy">Miętowy</option><option value="Biały">Biały</option></select>
+            <select id="colorFilter"><option value="">Kolor</option><option value="Czekoladowy">Czekoladowy 🍫</option><option value="Pudrowy róż">Pudrowy róż 🌸</option></select>
             <select id="sizeFilter"><option value="">Rozmiar</option><option value="XS">XS</option><option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option></select>
-            <select id="genderFilter"><option value="">Płeć</option><option value="damskie">Damskie</option><option value="męskie">Męskie</option><option value="unisex">Unisex</option></select>
+            <select id="genderFilter"><option value="">Płeć</option><option value="damskie">Damskie</option><option value="unisex">Unisex</option></select>
             <select id="sortSelect"><option value="default">Sortuj</option><option value="price-asc">Cena ↑</option><option value="price-desc">Cena ↓</option></select>
         </div>
         <div id="shopProductsGrid" class="products-grid"></div>
     </div></section>
 
-    <!-- Kursy (przydatne dla studentów) -->
-    <section id="courses" style="background:var(--gray-light);"><div class="container"><h2>📚 Darmowe webinary i kursy dla studentów</h2><div id="coursesContainer" class="courses-grid"></div><div style="margin-top:32px; text-align:center;"><button id="adminPanelBtn" class="btn-outline btn-primary" style="background:transparent;"><i class="fas fa-user-shield"></i> Panel Admina (dodaj produkt/kurs)</button></div></div></section>
+    <!-- Sekcja Kursów (widoczna na stronie głównej) -->
+    <section id="coursesSection" style="background: linear-gradient(135deg, #fef5ef 0%, #fce8e4 100%);">
+        <div class="container">
+            <h2>📚 Darmowe webinary i kursy</h2>
+            <p style="font-size:1.1rem; margin-bottom:32px; color:#7a5a4a;">Przygotowaliśmy dla Ciebie kursy, które pomogą Ci w studiowaniu i przyszłej pracy. <strong>Więcej kursów znajdziesz na dedykowanej stronie!</strong></p>
+            <div id="coursesContainer" class="courses-grid"></div>
+            <div style="text-align: center; margin-top: 40px;">
+                <button id="coursesPageBtnMain" class="btn-honey"><i class="fas fa-arrow-right"></i> Zobacz wszystkie kursy</button>
+            </div>
+            <div style="margin-top:32px; text-align:center;">
+                <button id="adminPanelBtn" class="btn-outline" style="background:transparent;"><i class="fas fa-user-shield"></i> Panel Admina (dodaj produkt/kurs)</button>
+            </div>
+        </div>
+    </section>
 
-    <!-- FAQ studenckie -->
+    <!-- Newsletter -->
+    <div class="container"><div class="newsletter-box"><h3 style="color:var(--brown);">🍯 Zapisz się do newslettera</h3><p>Otrzymaj kod STUDENTKA10 z -10% na pierwsze zamówienie!</p><div style="display:flex; gap:12px; justify-content:center; margin-top:20px; flex-wrap:wrap;"><input type="email" id="newsEmail" placeholder="Twój e-mail" style="padding:12px 20px; border-radius:40px; border:none; width:280px;"><button id="newsletterBtn" class="btn-primary">Zapisuję się</button></div></div></div>
+
+    <!-- FAQ -->
     <section id="faq"><div class="container"><h2>❓ Najczęściej pytacie</h2><div id="faqAccordion"></div></div></section>
 
-    <!-- Kontakt + social -->
-    <section id="contact"><div class="container"><h2>📱 Jesteśmy z Wami</h2><p><i class="fab fa-instagram" style="color:var(--mint);"></i> @luminamed_pl &nbsp;|&nbsp; <i class="fab fa-tiktok"></i> @luminamed &nbsp;|&nbsp; <i class="fas fa-envelope"></i> student@luminamed.pl</p><div style="margin-top:20px;"><button id="newsletterBtn" class="btn-primary btn-mint">🎁 Zapisz się po kod -10%</button></div></div></section>
+    <!-- Kontakt -->
+    <section id="contact"><div class="container"><h2>📱 Bądźmy w kontakcie</h2><p><i class="fab fa-instagram" style="color:var(--honey);"></i> @scrubee_pl &nbsp;|&nbsp; <i class="fab fa-tiktok"></i> @scrubee &nbsp;|&nbsp; <i class="fas fa-envelope"></i> hello@scrubee.pl</p><p style="margin-top:16px;">💬 Odpowiadamy w ciągu 2h! Jesteśmy tu dla Ciebie.</p></div></section>
 </main>
 
-<footer><div class="container"><div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px;"><div>© 2025 LuminaMed – od studentów dla studentów</div><div><i class="fab fa-cc-visa"></i> <i class="fab fa-paypal"></i> <i class="fas fa-box"></i> InPost | 🇵🇱 Szyte w Polsce</div></div></div></footer>
+<footer><div class="container"><div style="display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px;"><div>© 2025 Scrubee – słodka wygoda dla studentek medycyny</div><div><i class="fab fa-cc-visa"></i> <i class="fab fa-paypal"></i> <i class="fas fa-box"></i> InPost | 🇵🇱 Szyte w Polsce</div></div></div></footer>
 
 <!-- Modale -->
-<div id="cartModal" class="modal"><div class="modal-content"><h3>🛒 Twój koszyk</h3><div id="cartItemsList"></div><div id="cartSummary"></div><div style="margin-top:20px; display:flex; gap:10px;"><button id="closeCartBtn" class="btn-primary">Zamknij</button><button id="checkoutBtn" class="btn-primary btn-mint">Zamawiam</button></div></div></div>
+<div id="cartModal" class="modal"><div class="modal-content"><h3>🛒 Twój koszyk</h3><div id="cartItemsList"></div><div id="cartSummary"></div><div style="margin-top:20px; display:flex; gap:10px;"><button id="closeCartBtn" class="btn-primary">Zamknij</button><button id="checkoutBtn" class="btn-primary btn-rose">Zamawiam</button></div></div></div>
 <div id="quickViewModal" class="modal"><div class="modal-content" id="quickViewContent"></div></div>
 
 <script>
-    // ========== DANE PRODUKTÓW (przyjazne studentom) ==========
+    // ========== DANE PRODUKTÓW ==========
     let products = [
-        { id: 1, name: "Scrub Luna", price: 199, color: "Niebieski", size: ["XS","S","M","L"], gender: "damskie", image: "https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop", bestseller: true },
-        { id: 2, name: "Scrub Aura", price: 219, color: "Granat", size: ["M","L","XL"], gender: "męskie", image: "https://images.pexels.com/photos/5214996/pexels-photo-5214996.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop", bestseller: true },
-        { id: 3, name: "Soft Shell Flex", price: 179, color: "Miętowy", size: ["S","M","L"], gender: "unisex", image: "https://images.pexels.com/photos/5215008/pexels-photo-5215008.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop", bestseller: false },
-        { id: 4, name: "Plecak Medyczny", price: 129, color: "Biały", size: [], gender: "unisex", image: "https://images.pexels.com/photos/5214960/pexels-photo-5214960.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop", bestseller: true },
-        { id: 5, name: "Czepek + maseczka set", price: 59, color: "Miętowy", size: [], gender: "unisex", image: "https://images.pexels.com/photos/5215037/pexels-photo-5215037.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop", bestseller: false },
-        { id: 6, name: "Crocsy medyczne", price: 159, color: "Biały", size: ["36","37","38","39","40"], gender: "unisex", image: "https://images.pexels.com/photos/5215012/pexels-photo-5215012.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop", bestseller: true }
+        { id: 1, name: "Scrubee Chocolate", price: 199, color: "Czekoladowy", size: ["XS","S","M","L"], gender: "damskie", image: "https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop", bestseller: true, badge: "🍫" },
+        { id: 2, name: "Scrubee Rose", price: 199, color: "Pudrowy róż", size: ["XS","S","M","L"], gender: "damskie", image: "https://images.pexels.com/photos/5215000/pexels-photo-5215000.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop", bestseller: true, badge: "🌸" },
+        { id: 3, name: "Kurtka Honey", price: 179, color: "Czekoladowy", size: ["S","M","L"], gender: "damskie", image: "https://images.pexels.com/photos/5215008/pexels-photo-5215008.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop", bestseller: false },
+        { id: 4, name: "Torba Bee Bag", price: 129, color: "Pudrowy róż", size: [], gender: "damskie", image: "https://images.pexels.com/photos/5214960/pexels-photo-5214960.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop", bestseller: true },
+        { id: 5, name: "Czepek + maseczka set", price: 59, color: "Czekoladowy", size: [], gender: "unisex", image: "https://images.pexels.com/photos/5215037/pexels-photo-5215037.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop", bestseller: false },
+        { id: 6, name: "Kapcie Bee Soft", price: 89, color: "Pudrowy róż", size: ["36","37","38","39"], gender: "damskie", image: "https://images.pexels.com/photos/5215012/pexels-photo-5215012.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop", bestseller: true }
     ];
+    
+    // KURSÓW WIĘCEJ
     let courses = [
-        { id: 101, title: "Jak przetrwać staż? – webinar", duration: "2h", price: 0, level: "darmowy" },
-        { id: 102, title: "EKG dla początkujących", duration: "6h", price: 99, level: "podstawowy" },
-        { id: 103, title: "Pielęgnacja skóry na dyżurze", duration: "3h", price: 0, level: "darmowy" }
+        { id: 101, title: "Jak przetrwać staż? – webinar", duration: "2h", price: 0, level: "darmowy", badge: "🎓", description: "Praktyczne wskazówki od rezydentów" },
+        { id: 102, title: "EKG dla początkujących", duration: "6h", price: 99, level: "podstawowy", badge: "💓", description: "Naucz się czytać EKG w weekend" },
+        { id: 103, title: "Pielęgnacja skóry na dyżurze", duration: "3h", price: 0, level: "darmowy", badge: "✨", description: "Jak dbać o cerę przy 12h zmianach" },
+        { id: 104, title: "Aseptyka i antyseptyka", duration: "4h", price: 0, level: "podstawowy", badge: "🧼", description: "Podstawy dla młodych stażystek" },
+        { id: 105, title: "Komunikacja z pacjentem", duration: "5h", price: 49, level: "średni", badge: "💬", description: "Jak budować zaufanie" }
     ];
-    let cart = JSON.parse(localStorage.getItem('luminamed_cart')) || [];
+    
+    let cart = JSON.parse(localStorage.getItem('scrubee_cart')) || [];
     let faqData = [
-        { q: "Czy te scruby są wygodne na 12h zajęciach?", a: "Tak! Szyte z elastycznej bawełny, nie krępują ruchów." },
-        { q: "Mam zniżkę studencką?", a: "Oczywiście! Kod STUDENT10 daje -10% na pierwsze zamówienie." },
-        { q: "Czy mogę zwrócić, jeśli nie pasuje?", a: "Tak, 30 dni na zwrot – bez problemu." },
-        { q: "Jak dobrać rozmiar?", a: "Mamy tabelę rozmiarów i pomagamy na czacie." },
-        { q: "Czy wysyłają za granicę?", a: "Na razie tylko Polska, ale pracujemy nad EU!" }
+        { q: "Czy te scruby są miękkie?", a: "Tak! Szyte z bawełny premium, miękkiej jak miodek 🍯" },
+        { q: "Mam zniżkę dla studentki?", a: "Oczywiście! Kod STUDENTKA10 daje -10% na pierwsze zamówienie." },
+        { q: "Czy mogę zwrócić, jeśli nie pasuje?", a: "Tak, 30 dni na zwrot – bez problemu 💕" },
+        { q: "Jak dobrać rozmiar?", a: "Mamy tabelę rozmiarów i pomagamy na czacie!" },
+        { q: "Czy wysyłacie za granicę?", a: "Na razie tylko Polska, ale pracujemy nad EU!" },
+        { q: "Czy kursy są certyfikowane?", a: "Tak, po ukończeniu otrzymujesz certyfikat." }
     ];
+    
     let socialPosts = [
-        { name: "kasia_med", img: "https://randomuser.me/api/portraits/women/44.jpg", text: "Najwygodniejsze scruby na bloku!" },
-        { name: "doktorek_adam", img: "https://randomuser.me/api/portraits/men/32.jpg", text: "Polecam każdemu studenciakowi 💚" },
-        { name: "student_med_ania", img: "https://randomuser.me/api/portraits/women/68.jpg", text: "Kieszenie na wszystko!" }
+        { name: "ola_medica", img: "https://randomuser.me/api/portraits/women/44.jpg", text: "Scrubee to najlepsze co mnie spotkało na studiach! 🐝" },
+        { name: "kasia_lekarka", img: "https://randomuser.me/api/portraits/women/68.jpg", text: "Czekoladowy scrub to must have! 🍫" },
+        { name: "zuzia_med", img: "https://randomuser.me/api/portraits/women/55.jpg", text: "Pudrowy róż – mój ulubiony kolor 🌸" }
+    ];
+    
+    let blogPosts = [
+        { title: "5 rzeczy, które warto wiedzieć przed pierwszym dyżurem", icon: "fa-clock", readTime: "5 min" },
+        { title: "Jak wybrać idealny rozmiar scrubów?", icon: "fa-ruler", readTime: "3 min" },
+        { title: "Pielęgnacja ubrań medycznych – poradnik", icon: "fa-tshirt", readTime: "4 min" }
+    ];
+    
+    let stats = [
+        { number: "5000+", label: "Zadowolonych studentek", icon: "fa-smile" },
+        { number: "98%", label: "Poleca koleżankom", icon: "fa-star" },
+        { number: "24h", label: "Czas wysyłki", icon: "fa-truck" },
+        { number: "30 dni", label: "Na zwrot", icon: "fa-undo" }
     ];
 
-    function saveCart() { localStorage.setItem('luminamed_cart', JSON.stringify(cart)); updateCartCount(); }
+    function saveCart() { localStorage.setItem('scrubee_cart', JSON.stringify(cart)); updateCartCount(); }
     function updateCartCount() { document.getElementById('cartCount').innerText = cart.reduce((s,i)=>s+i.quantity,0); }
 
     function renderProducts(containerId, productArray) {
         const container = document.getElementById(containerId);
         if(!container) return;
-        container.innerHTML = productArray.map(p => `<div class="product-card"><img src="${p.image}" alt="${p.name}"><h3>${p.name}</h3><div class="price">${p.price} zł</div><div>${p.size?.length ? `<select class="size-select" data-id="${p.id}">${p.size.map(s=>`<option>${s}</option>`).join('')}</select>` : 'uniwersalny'}</div><div style="margin-top:12px;"><button class="add-to-cart-btn btn-primary" data-id="${p.id}" style="padding:6px 14px;">➕ Dodaj</button><button class="quick-view-btn" data-id="${p.id}" style="margin-left:6px; background:transparent; border:1px solid var(--mint); padding:6px 12px; border-radius:40px;">👁️</button></div></div>`).join('');
+        container.innerHTML = productArray.map(p => `<div class="product-card"><img src="${p.image}" alt="${p.name}"><h3>${p.badge ? p.badge : '🍯'} ${p.name}</h3><div class="price">${p.price} zł</div><div>${p.size?.length ? `<select class="size-select" data-id="${p.id}">${p.size.map(s=>`<option>${s}</option>`).join('')}</select>` : 'uniwersalny'}</div><div style="margin-top:12px;"><button class="add-to-cart-btn btn-primary" data-id="${p.id}" style="padding:6px 14px;">➕ Dodaj</button><button class="quick-view-btn" data-id="${p.id}" style="margin-left:6px; background:transparent; border:1px solid var(--rose); padding:6px 12px; border-radius:40px;">👁️</button></div></div>`).join('');
         document.querySelectorAll('.add-to-cart-btn').forEach(btn => btn.addEventListener('click', () => { let id = parseInt(btn.dataset.id); let prod = products.find(p=>p.id===id); let sizeSelect = btn.closest('.product-card')?.querySelector('.size-select'); let size = sizeSelect ? sizeSelect.value : 'uniwersalny'; let existing = cart.find(i=>i.id===id && i.selectedSize===size); if(existing) existing.quantity++; else cart.push({...prod, quantity:1, selectedSize: size}); saveCart(); alert(`✨ ${prod.name} w koszyku!`); }));
         document.querySelectorAll('.quick-view-btn').forEach(btn => btn.addEventListener('click', () => { let prod = products.find(p=>p.id==btn.dataset.id); document.getElementById('quickViewContent').innerHTML = `<h3>${prod.name}</h3><img src="${prod.image}" width="180" style="border-radius:20px;"><p>${prod.price} zł</p><p>Rozmiary: ${prod.size?.join(', ') || 'uniwersalny'}</p><button id="closeQuick" class="btn-primary">Zamknij</button>`; document.getElementById('quickViewModal').style.display='flex'; document.getElementById('closeQuick').onclick = () => document.getElementById('quickViewModal').style.display='none'; }));
     }
@@ -194,7 +242,7 @@
     function renderShopWithFilters() {
         let filtered = [...products];
         let search = document.getElementById('searchInput')?.value.toLowerCase();
-        if(search) filtered = filtered.filter(p=>p.name.toLowerCase().includes(search));
+        if(search) filtered = filtered.filter(p=>p.name.toLowerCase().includes(search) || p.color.toLowerCase().includes(search));
         let color = document.getElementById('colorFilter')?.value;
         if(color) filtered = filtered.filter(p=>p.color === color);
         let sizeF = document.getElementById('sizeFilter')?.value;
@@ -206,30 +254,80 @@
         if(sort === 'price-desc') filtered.sort((a,b)=>b.price-a.price);
         renderProducts('shopProductsGrid', filtered);
     }
-    function renderCourses() { document.getElementById('coursesContainer').innerHTML = courses.map(c => `<div class="product-card"><h3>${c.title}</h3><p>⏱️ ${c.duration} | 🎓 ${c.level}</p><div class="price">${c.price === 0 ? 'DARMOWY' : c.price+' zł'}</div><button class="enroll-btn" style="background:var(--mint); border:none; padding:8px 16px; border-radius:40px;">Zapisuję się</button></div>`).join(''); document.querySelectorAll('.enroll-btn').forEach(btn => btn.addEventListener('click', () => alert('✅ Zapisano! Link wyślemy na maila.'))); }
+    
+    function renderCourses() { 
+        document.getElementById('coursesContainer').innerHTML = courses.slice(0,3).map(c => `<div class="product-card"><h3>${c.badge} ${c.title}</h3><p>⏱️ ${c.duration} | 🎓 ${c.level}</p><p style="font-size:0.85rem; color:#7a5a4a;">${c.description}</p><div class="price">${c.price === 0 ? 'DARMOWY 🎁' : c.price+' zł'}</div><button class="enroll-btn" style="background:var(--rose); border:none; padding:8px 16px; border-radius:40px;">Zapisuję się</button></div>`).join(''); 
+        document.querySelectorAll('.enroll-btn').forEach(btn => btn.addEventListener('click', () => alert('✅ Zapisano! Link wyślemy na maila.'))); 
+    }
+    
     function renderBestsellers() { renderProducts('bestsellersContainer', products.filter(p=>p.bestseller)); }
-    function renderSocial() { document.getElementById('socialGrid').innerHTML = socialPosts.map(s => `<div class="social-card"><img src="${s.img}"><p><strong>@${s.name}</strong></p><p>${s.text}</p><i class="fas fa-heart" style="color:var(--mint);"></i> 124 likes</div>`).join(''); }
-    function renderFeatures() { document.getElementById('featuresGrid').innerHTML = [["fa-leaf","Polska bawełna"],["fa-graduation-cap","Zniżka studencka"],["fa-truck-fast","Dostawa do uczelni"],["fa-hand-holding-heart","Zwrot 30 dni"]].map(f=>`<div class="product-card"><i class="fas ${f[0]}" style="font-size:2rem; color:var(--mint)"></i><h3>${f[1]}</h3></div>`).join(''); }
+    function renderSocial() { document.getElementById('socialGrid').innerHTML = socialPosts.map(s => `<div class="social-card"><img src="${s.img}"><p><strong>@${s.name}</strong></p><p>${s.text}</p><i class="fas fa-heart" style="color:var(--rose-dark);"></i> 234 likes</div>`).join(''); }
+    function renderFeatures() { document.getElementById('featuresGrid').innerHTML = [["fa-bug","Polska bawełna premium"],["fa-graduation-cap","Zniżka studencka -10%"],["fa-truck-fast","Dostawa do uczelni"],["fa-hand-holding-heart","Zwrot 30 dni"]].map(f=>`<div class="product-card"><i class="fas ${f[0]}" style="font-size:2rem; color:var(--honey)"></i><h3>${f[1]}</h3></div>`).join(''); }
+    function renderStats() { document.getElementById('statsGrid').innerHTML = stats.map(s => `<div class="stat-card"><i class="fas ${s.icon}" style="font-size:2.5rem; color:var(--honey)"></i><h2 style="margin:12px 0 0 0; font-size:2rem;">${s.number}</h2><p>${s.label}</p></div>`).join(''); }
+    function renderBlog() { document.getElementById('blogGrid').innerHTML = blogPosts.map(b => `<div class="blog-card"><i class="fas ${b.icon}" style="font-size:2rem; color:var(--honey)"></i><h3 style="margin:12px 0 8px;">${b.title}</h3><p>📖 ${b.readTime} czytania</p><button class="btn-outline" style="margin-top:12px; padding:6px 16px;">Czytaj więcej</button></div>`).join(''); }
     function renderFAQ() { document.getElementById('faqAccordion').innerHTML = faqData.map((item,idx)=>`<div class="faq-item"><button class="faq-question">${item.q} <i class="fas fa-chevron-down"></i></button><div class="faq-answer">${item.a}</div></div>`).join(''); document.querySelectorAll('.faq-question').forEach(btn=>btn.addEventListener('click',()=>{ let ans = btn.nextElementSibling; ans.style.display = ans.style.display === 'block' ? 'none' : 'block'; })); }
-    function renderCartModal() { let itemsHtml = cart.map((item,idx)=>`<div style="display:flex; justify-content:space-between; margin-bottom:12px;"><div><b>${item.name}</b> (${item.selectedSize}) x${item.quantity}</div><div>${item.price*item.quantity} zł <button data-idx="${idx}" class="remove-item">🗑️</button> <button data-idx="${idx}" class="inc-item">+</button> <button data-idx="${idx}" class="dec-item">-</button></div></div>`).join(''); let total = cart.reduce((s,i)=>s+i.price*i.quantity,0); let shipping = total>200 ? 0 : 12; document.getElementById('cartItemsList').innerHTML = itemsHtml || '<p>Koszyk pusty :(</p>'; document.getElementById('cartSummary').innerHTML = `<hr>Razem: ${total} zł + wysyłka ${shipping===0?'GRATIS':shipping+' zł'} = <strong>${total+shipping} zł</strong>`; document.querySelectorAll('.remove-item').forEach(btn=>btn.addEventListener('click',()=>{ cart.splice(btn.dataset.idx,1); saveCart(); renderCartModal(); })); document.querySelectorAll('.inc-item').forEach(btn=>btn.addEventListener('click',()=>{ cart[btn.dataset.idx].quantity++; saveCart(); renderCartModal(); })); document.querySelectorAll('.dec-item').forEach(btn=>btn.addEventListener('click',()=>{ if(cart[btn.dataset.idx].quantity>1) cart[btn.dataset.idx].quantity--; else cart.splice(btn.dataset.idx,1); saveCart(); renderCartModal(); })); }
-    function showAdminPanel() { let action = prompt("Dodaj produkt czy kurs? (p/k)", "p"); if(action==='p'){ let name=prompt("Nazwa"); let price=parseFloat(prompt("Cena")); let color=prompt("Kolor"); let sizes=prompt("Rozmiary (przecinkiem)").split(','); let gender=prompt("Płeć"); let image=prompt("URL zdjęcia"); if(name) products.push({id:Date.now(),name,price,color,size:sizes,gender,image,bestseller:false}); renderShopWithFilters(); renderBestsellers(); alert("Dodano!"); } else if(action==='k'){ let title=prompt("Tytuł kursu"); let duration=prompt("Czas"); let price=parseInt(prompt("Cena (0 jeśli darmowy)")); let level=prompt("Poziom"); if(title) courses.push({id:Date.now(),title,duration,price,level}); renderCourses(); alert("Dodano kurs!"); } }
+    
+    function renderCartModal() { 
+        let itemsHtml = cart.map((item,idx)=>`<div style="display:flex; justify-content:space-between; margin-bottom:12px;"><div><b>${item.name}</b> (${item.selectedSize}) x${item.quantity}</div><div>${item.price*item.quantity} zł <button data-idx="${idx}" class="remove-item">🗑️</button> <button data-idx="${idx}" class="inc-item">+</button> <button data-idx="${idx}" class="dec-item">-</button></div></div>`).join(''); 
+        let total = cart.reduce((s,i)=>s+i.price*i.quantity,0); 
+        let shipping = total>200 ? 0 : 12; 
+        document.getElementById('cartItemsList').innerHTML = itemsHtml || '<p>Koszyk pusty :(</p>'; 
+        document.getElementById('cartSummary').innerHTML = `<hr>Razem: ${total} zł + wysyłka ${shipping===0?'GRATIS 🎁':shipping+' zł'} = <strong>${total+shipping} zł</strong>`; 
+        document.querySelectorAll('.remove-item').forEach(btn=>btn.addEventListener('click',()=>{ cart.splice(btn.dataset.idx,1); saveCart(); renderCartModal(); })); 
+        document.querySelectorAll('.inc-item').forEach(btn=>btn.addEventListener('click',()=>{ cart[btn.dataset.idx].quantity++; saveCart(); renderCartModal(); })); 
+        document.querySelectorAll('.dec-item').forEach(btn=>btn.addEventListener('click',()=>{ if(cart[btn.dataset.idx].quantity>1) cart[btn.dataset.idx].quantity--; else cart.splice(btn.dataset.idx,1); saveCart(); renderCartModal(); })); 
+    }
+    
+    function showAdminPanel() { 
+        let action = prompt("Dodaj produkt czy kurs? (p/k)", "p"); 
+        if(action==='p'){ 
+            let name=prompt("Nazwa"); let price=parseFloat(prompt("Cena")); let color=prompt("Kolor (Czekoladowy/Pudrowy róż)"); let sizes=prompt("Rozmiary (przecinkiem)").split(','); let gender=prompt("Płeć (damskie/unisex)"); let image=prompt("URL zdjęcia"); 
+            if(name) products.push({id:Date.now(),name,price,color,size:sizes,gender,image,bestseller:false,badge:"🍯"}); 
+            renderShopWithFilters(); renderBestsellers(); alert("Dodano produkt!"); 
+        } else if(action==='k'){ 
+            let title=prompt("Tytuł kursu"); let duration=prompt("Czas"); let price=parseInt(prompt("Cena (0 jeśli darmowy)")); let level=prompt("Poziom"); let desc=prompt("Krótki opis"); 
+            if(title) courses.push({id:Date.now(),title,duration,price,level,badge:"📚",description:desc}); 
+            renderCourses(); alert("Dodano kurs!"); 
+        } 
+    }
 
-    // Color picker dla modelki
+    // Color picker
     const modelImages = [
         "https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop",
-        "https://images.pexels.com/photos/5214996/pexels-photo-5214996.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop",
-        "https://images.pexels.com/photos/5215008/pexels-photo-5215008.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop",
-        "https://images.pexels.com/photos/5214960/pexels-photo-5214960.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop",
-        "https://images.pexels.com/photos/5215037/pexels-photo-5215037.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop",
-        "https://images.pexels.com/photos/5215012/pexels-photo-5215012.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop"
+        "https://images.pexels.com/photos/5215000/pexels-photo-5215000.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop"
     ];
-    const colorValues = ["#0a3d62","#00b894","#2c7da0","#f5f0e8","#4a3b52","#c9e4de"];
-    function initColorPicker() { const pickerDiv = document.getElementById('colorPicker'); pickerDiv.innerHTML = ''; colorValues.forEach((col, idx) => { const btn = document.createElement('div'); btn.style.backgroundColor = col; btn.classList.add('color-btn'); btn.addEventListener('click', () => { document.getElementById('modelImage').src = modelImages[idx % modelImages.length]; document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); }); pickerDiv.appendChild(btn); }); document.querySelectorAll('.color-btn')[0]?.classList.add('active'); }
+    const colorValues = ["#5c3a2e", "#e8c4c0"];
+    const colorNames = ["Czekoladowy 🍫", "Pudrowy róż 🌸"];
+    function initColorPicker() { 
+        const pickerDiv = document.getElementById('colorPicker'); 
+        pickerDiv.innerHTML = ''; 
+        colorValues.forEach((col, idx) => { 
+            const btn = document.createElement('div'); 
+            btn.style.backgroundColor = col; 
+            btn.classList.add('color-btn'); 
+            btn.title = colorNames[idx]; 
+            btn.addEventListener('click', () => { 
+                document.getElementById('modelImage').src = modelImages[idx % modelImages.length]; 
+                document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active')); 
+                btn.classList.add('active'); 
+            }); 
+            pickerDiv.appendChild(btn); 
+        }); 
+        document.querySelectorAll('.color-btn')[0]?.classList.add('active'); 
+    }
+
+    // Funkcja przekierowania na stronę kursów (TU BĘDZIESZ MÓGŁ WSTAWIĆ SWÓJ LINK)
+    function goToCoursesPage() {
+        // 🔽🔽🔽 TUTAJ WSTAW SWÓJ LINK DO STRONY Z KURSAMI 🔽🔽🔽
+        window.location.href = "https://twoja-strona-kursow.pl"; // ZMIEŃ NA SWÓJ LINK!
+        // Alternatywnie, jeśli chcesz otworzyć w nowej karcie:
+        // window.open("https://twoja-strona-kursow.pl", "_blank");
+    }
 
     // Eventy
     document.getElementById('cartIcon').addEventListener('click',()=>{ renderCartModal(); document.getElementById('cartModal').style.display='flex'; });
     document.getElementById('closeCartBtn').addEventListener('click',()=>document.getElementById('cartModal').style.display='none');
-    document.getElementById('checkoutBtn').addEventListener('click',()=>{ alert("💚 Dziękujemy! Studencki rabat doliczony."); document.getElementById('cartModal').style.display='none'; });
+    document.getElementById('checkoutBtn').addEventListener('click',()=>{ alert("🍯 Dziękujemy! Kod STUDENTKA10 został aktywowany."); document.getElementById('cartModal').style.display='none'; });
     document.getElementById('goToShopBtn').addEventListener('click',()=>document.getElementById('shop').scrollIntoView({behavior:'smooth'}));
     document.getElementById('adminPanelBtn').addEventListener('click',showAdminPanel);
     document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
@@ -238,10 +336,22 @@
     document.getElementById('sizeFilter')?.addEventListener('change',renderShopWithFilters);
     document.getElementById('genderFilter')?.addEventListener('change',renderShopWithFilters);
     document.getElementById('sortSelect')?.addEventListener('change',renderShopWithFilters);
-    document.getElementById('newsletterBtn')?.addEventListener('click',()=>{ let email = prompt("Podaj email, wyślemy kod STUDENT10:"); if(email) alert("📧 Kod wysłany! Sprawdź spam."); });
-    document.querySelectorAll('[data-section]').forEach(link=>link.addEventListener('click',(e)=>{ e.preventDefault(); let id = link.dataset.id; document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); if(document.getElementById('navLinks').classList.contains('open')) document.getElementById('navLinks').classList.remove('open'); }));
+    document.getElementById('newsletterBtn')?.addEventListener('click',()=>{ let email = document.getElementById('newsEmail')?.value; if(email && email.includes('@')) { alert("📧 Kod STUDENTKA10 wysłany! Sprawdź spam. 🍯"); document.getElementById('newsEmail').value = ''; } else alert("Podaj poprawny email!"); });
+    
+    // Przekierowania na stronę kursów
+    document.getElementById('coursesPageLink')?.addEventListener('click', (e) => { e.preventDefault(); goToCoursesPage(); });
+    document.getElementById('coursesPageBtnMain')?.addEventListener('click', () => { goToCoursesPage(); });
+    document.getElementById('coursesBtnHero')?.addEventListener('click', () => { goToCoursesPage(); });
+    
+    document.querySelectorAll('[data-section]').forEach(link=>link.addEventListener('click',(e)=>{ 
+        e.preventDefault(); 
+        let id = link.dataset.id; 
+        if(id === 'coursesSection') { goToCoursesPage(); return; }
+        document.getElementById(id)?.scrollIntoView({behavior:'smooth'}); 
+        if(document.getElementById('navLinks').classList.contains('open')) document.getElementById('navLinks').classList.remove('open'); 
+    }));
 
-    function init() { initColorPicker(); renderSocial(); renderFeatures(); renderBestsellers(); renderCourses(); renderFAQ(); renderShopWithFilters(); updateCartCount(); }
+    function init() { initColorPicker(); renderStats(); renderSocial(); renderFeatures(); renderBestsellers(); renderCourses(); renderBlog(); renderFAQ(); renderShopWithFilters(); updateCartCount(); }
     init();
 </script>
 </body>
